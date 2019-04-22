@@ -25,6 +25,7 @@
   <Geom type="interval" position="genre*sold" color="genre" />
 </Chart>
 ```
+
 * 一旦使用`<Axis/>`组件，那么所有的坐标轴都会显示，如若需要隐藏某一个坐标轴及相关信息，务必将visible参数并置为false，如下所示：
 
 ```js
