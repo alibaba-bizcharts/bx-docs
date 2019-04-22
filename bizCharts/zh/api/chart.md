@@ -74,7 +74,7 @@ svg、canvas 渲染更多说明[请点击](//www.yuque.com/antv/g2-docs/tutorial
 * 类型：Boolean
 * 描述：图表的宽度自适应开关，默认为 false，设置为 true 时表示自动取 dom（实例容器）的宽度。
 
-> bizcharts 图表只提供自使用父容器宽度的功能，不能自适应高度。
+> bizcharts 图表只提供自适应父容器宽度的功能，不能自适应高度。
 
 #### `width`
 * 类型：Number
