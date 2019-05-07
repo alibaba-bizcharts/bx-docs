@@ -62,8 +62,8 @@ const cols = {
 // 渲染图表
 ReactDOM.render((
   <Chart width={600} height={400} data={data} scale={cols}>
-      <Axis name="genre" />
-      <Axis name="sold" />
+      <Axis name="genre" title/>
+      <Axis name="sold" title/>
       <Legend position="top" dy={-20} />
       <Tooltip />
       <Geom type="interval" position="genre*sold" color="genre" />
