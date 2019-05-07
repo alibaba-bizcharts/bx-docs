@@ -16,6 +16,7 @@
   <Geom type="interval" position="genre*sold" color="genre" />
 </Chart>
 ```
+
 * 使用Axis组件时，必须指定当前坐标轴对应数据源中的字段名（字段名为name），否则该坐标轴相关配置信息将不起作用；
 
 ```js
@@ -61,7 +62,8 @@
 * 描述：当前坐标轴标题是否需要显示,及其样式配置。
 
 是否显示
-轴的 title 是默认不显示的, 即 ``title=null``，如果需要显示需要将此属性配置为 `true`。
+轴的 title 是默认不显示的, 即 ``title=null``，如果需要显示需要将此属性配置为 `true`
+
 ```js
   <Axis title />
 ```
