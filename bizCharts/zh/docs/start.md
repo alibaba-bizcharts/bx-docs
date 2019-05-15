@@ -9,9 +9,8 @@
 ## 如何获取 BizCharts
 
 你可以通过以下几种方式获取 BizCharts：
-1. 从官网下载界面选择你需要的版本下载，建议使用 3.1.10 版本
-2. 在 BizCharts 的 GitHub 上下载最新的 release 版本
-3. 通过 npm 获取 BizCharts，我们提供了 BizCharts npm 包，通过下面的命令即可完成安装
+1. 在 BizCharts 的 GitHub 上下载最新的 release 版本 https://github.com/alibaba/BizCharts.git
+2. 通过 npm 获取 BizCharts，我们提供了 BizCharts npm 包，通过下面的命令即可完成安装
 
 ```bash
 npm install bizcharts --save
