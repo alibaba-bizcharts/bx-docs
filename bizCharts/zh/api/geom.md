@@ -157,7 +157,7 @@ color 支持的映射值如下：
 
 ```js
 //代码示例
-<Geom color='ffffff'/>
+<Geom color='#ffffff'/>
 ```
 
 <span id="shape"></span>
