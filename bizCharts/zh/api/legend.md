@@ -65,7 +65,7 @@
 
 分类类型和连续类型的配置有一定的区别，下面列出了这两种类型支持的可配置的属性：
 
-### 分类图例、·
+### 分类图例
 ![image | center](https://img.alicdn.com/tfs/TB1roBwhrYI8KJjy0FaXXbAiVXa-450-232.png "")
 
 #### `name`
