@@ -125,7 +125,20 @@ false表示只展示单条 tooltip。
 * 描述: 支持用户获取当前tooltip取值，并完全自定义tooltip，用户可以根据htmlContent方法返回的title和items两个参数定义tooltip dom节点的构成和显示方式。
 
 ```js
-<Tooltip useHtml htmlContent={(title, items) => {return '<div><ul><li>.....</li></ul></div>'}}>
+<Chart height={400} data={data} scale={cols}>
+  <Axis name="year" />
+  <Axis name="value" />
+  <Tooltip useHtml htmlContent={(title, items) => {
+      return `<div class="g2-tooltip"><div class="g2-tooltip-title">${title} </div><ul><li>${JSON.stringify(items)}</li></ul></div>`}}
+  />
+  <Geom type="line" position="year*value" size={2} />
+  <Geom
+    type="point"
+    position="year*value"
+    size={4}
+    shape={"circle"}
+  />
+</Chart>
 ```
 
 #### `containerTpl`
