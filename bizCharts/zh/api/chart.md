@@ -438,7 +438,13 @@ let chartIns;
 代码示例：
 
 ```js
-<Chart onPointMouseenter= ev => {
-  //some code
-}/>
+  <Chart width={600} height={400} data={data} scale={scales} onTooltipChange={ev=>{
+      console.log(ev);
+      ev.items[0].title += 'xxx';
+    }}>
+    <Axis name="sold" />
+    <Axis name="genre" />
+    <Tooltip title="sold"/>
+    <Geom type="interval" position="genre*sold" color="genre" />
+  </Chart>
 ```
