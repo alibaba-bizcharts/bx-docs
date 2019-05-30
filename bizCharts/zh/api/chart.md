@@ -398,6 +398,18 @@ let chartIns;
 />
 ```
 
+```js
+  <Chart width={600} height={400} data={data} scale={scales} onTooltipChange={ev=>{
+      console.log(ev);
+      ev.items[0].title += 'xxx';
+    }}>
+    <Axis name="sold" />
+    <Axis name="genre" />
+    <Tooltip title="sold"/>
+    <Geom type="interval" position="genre*sold" color="genre" />
+  </Chart>
+```
+
 #### `onTooltipShow`
 * 类型：Function
 * 描述：tooltip 显示时触发。
@@ -438,13 +450,9 @@ let chartIns;
 代码示例：
 
 ```js
-  <Chart width={600} height={400} data={data} scale={scales} onTooltipChange={ev=>{
+  <Chart width={600} height={400} data={data} scale={scales} onIntervalMouseenter={ev=>{
       console.log(ev);
-      ev.items[0].title += 'xxx';
     }}>
-    <Axis name="sold" />
-    <Axis name="genre" />
-    <Tooltip title="sold"/>
-    <Geom type="interval" position="genre*sold" color="genre" />
   </Chart>
 ```
+
