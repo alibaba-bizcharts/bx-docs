@@ -125,8 +125,8 @@ const scale = {
         `string`，对应点的坐标轴、tooltip 以及图例上展示的内容。
 
 `说明：`
-- min,max,minLimt 和 maxLimit 都会影响坐标轴上坐标点的生成
-- min 和 minLimt 的差别主要体现在 如果数据中的数据的范围是 10-20 对于 min: 0 来说，会生成从 0 - - 20 范围的坐标点，但是对于 minLimit 来说只要保证生成的坐标点不小于 0 即可，生成的坐标点的范围可能依然在 10 - 20 之间。
+- min,max,minLimit 和 maxLimit 都会影响坐标轴上坐标点的生成
+- min 和 minLimit 的差别主要体现在 如果数据中的数据的范围是 10-20 对于 min: 0 来说，会生成从 0 - - 20 范围的坐标点，但是对于 minLimit 来说只要保证生成的坐标点不小于 0 即可，生成的坐标点的范围可能依然在 10 - 20 之间。
 - max 和 maxLimit 的差别同 min 和 minLimit 类似， max 体现在坐标轴上肯定会出现 max 或者比 max 大的值，但是绝对不会出现比 maxLimit 大的值。
 
 ### log
