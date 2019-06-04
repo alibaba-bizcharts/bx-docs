@@ -280,7 +280,7 @@ marker = {(x, y, r) => {
 ```
 #### `itemTpl`
 * 类型：String | Function
-* 描述：当 useHtml 为 true 时生效，用于指定生成图例的图例项 html 模板，默认值如下：
+* 描述：当 useHtml 为 true 时生效，用于指定生成图例的图例项 html 模板。当传入String时，默认值如下，字符串模板中的value, color, checked, index分别代表当前子项的值，颜色，是否选中和序号。
 ```js
 <Legend
   itemTpl={'<li class="g2-legend-list-item item-{index} {checked}" data-color="{originColor}" data-value="{originValue}" style="cursor: pointer;font-size: 14px;">'
@@ -289,6 +289,19 @@ marker = {(x, y, r) => {
   + '</li>'}
 />
 ```
+* 当传入回调Function时，参数为当前子项的value值，color颜色， checked是否选中，index子项序号,返回自定义渲染内容。如：
+```js
+<Legend
+  itemTpl={(value, color, checked, index) => {
+    return `<li class="g2-legend-list-item item-${index} ${checked}" style="cursor: pointer;font-size: 14px;">
+  <i class="g2-legend-marker" style="width:10px;height:10px;border-radius:50%;display:inline-block;margin-right:10px;background-color:${color};"></i>
+  <span class="g2-legend-text">${value}</span>
+  </li>`
+  }}
+/>
+```
+
+
 > !注意：自定义模板时必须包含各个 dom 节点的 class，样式可以自定义。
 
 #### g2-legend 
