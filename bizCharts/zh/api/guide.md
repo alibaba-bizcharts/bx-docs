@@ -23,7 +23,7 @@
 | [`<Guide><DataRegion /></Guide>`](#DataRegion) | 辅助弧线。|
 
 ### 使用注意
-- Line是Guide的API
+- Line是Guide的API, [详见demo](https://bizcharts.net/products/bizCharts/demo/detail?id=line-series)
 
 ```js
 import { Chart, Geom, Axis, Tooltip, Guide } from 'bizcharts';
