@@ -25,7 +25,7 @@
 ### 使用注意
 - Line是Guide的API
 
-```
+```js
 import { Chart, Geom, Axis, Tooltip, Guide } from 'bizcharts';
 const { Line } = Guide;
 
