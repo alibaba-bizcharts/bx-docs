@@ -22,6 +22,40 @@
 | [`<Guide><DataMarker /></Guide>`](#DataMarker) | 辅助 html，指定位置添加自定义 html，显示自定义信息。|
 | [`<Guide><DataRegion /></Guide>`](#DataRegion) | 辅助弧线。|
 
+### 使用注意
+- Line是Guide的API
+
+```
+import { Chart, Geom, Axis, Tooltip, Guide } from 'bizcharts';
+const { Line } = Guide;
+
+<Chart height={400} data={data} scale={cols} forceFit>
+  <Geom type="line" position="month*revenue" size={2} color={'city'} />
+  <Guide>
+    <Line
+      top // {boolean} 指定 guide 是否绘制在 canvas 最上层，默认为 false, 即绘制在最下层
+      start={{ month: 'Aug', revenue: 26.5 }} // {object} | {function} | {array} 辅助线结束位置，值为原始数据值，支持 callback
+      end={{ month: 'Dec', revenue: 29 }} // 同 start
+      lineStyle={{
+	stroke: '#999', // 线的颜色
+	lineDash: [0, 2, 2], // 虚线的设置
+	lineWidth: 3, // 线的宽度
+      }} // 图形样式配置 https://bizcharts.net/products/bizCharts/api/graphic
+      text={{
+	position: 'start', // 'start' | 'center' | 'end' | '39%' | 0.5 文本的显示位置
+	autoRotate: true, // {boolean} 是否沿线的角度排布，默认为 true
+	style: { fill: 'red' }, // {object}文本图形样式配置
+	// content: {string}, // {string} 文本的内容
+	offsetX: 20, // {number} x 方向的偏移量
+	offsetY: -10, // {number} y 方向的偏移量
+	content: '预期收益趋势线',
+      }}
+    />
+  </Guide>
+</Chart>
+```
+
+
 
 ### 属性说明
 - 不同辅助标记组件所支持的配置属性也不一样，主要差异为坐标位置属性差异:
@@ -91,10 +125,14 @@
       content: {string}, // 文本的内容
       offsetX: {number}, // x 方向的偏移量
       offsetY: {number} // y 方向的偏移量
+      content: "xxxx"
     }}
   />
 </Guide>
 ```
+
+[详见demo](https://bizcharts.net/products/bizCharts/demo/detail?id=line-series)
+
 
 #### `top`
 * 类型：Boolean
