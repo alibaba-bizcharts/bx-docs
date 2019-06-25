@@ -395,6 +395,23 @@ const { Line } = Guide;
 * 类型：	String | Function
 * 描述：需要显示的 html 内容。
 
+[demo链接](https://bizcharts.net/products/bizCharts/demo/detail?id=guide-html&selectedKey=折线图)
+
+```js
+  const { Html } = Guide;
+  <Chart width={600} height={400} data={data} scale={scales} padding="auto">
+    <Axis name="sold" />
+    <Axis name="genre" />
+    <Geom type="line" position="genre*sold" color="sold" />
+    <Guide>
+      <Html position={[ 'Action', 150 ]} html={(xScale, yScale) => {
+        console.log(yScale);
+        return `<div>最大值是${yScale.sold.max}，<br/>最小值是${yScale.sold.min}</div>`; //位置信息
+      }} />
+    </Guide>
+  </Chart>
+```
+
 <span id = "arc"></span>
 ### Arc
 
