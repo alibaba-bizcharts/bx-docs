@@ -26,8 +26,7 @@
 
 ## tooltip自定义
 
-- 通过 `<Tooltip>` 组件上的 [itemTpl](../api/tooltip#itemTpl) 和 [containerTpl](../api/tooltip#containerTpl) 两个属性用通过 HTML 去控制 tooltip 的显示。
-
+- 通过 `<Tooltip>` 组件上的 [itemTpl](../api/tooltip#itemTpl) 和 [containerTpl](../api/tooltip#containerTpl) 两个属性用通过 HTML 去控制 tooltip 的显示。模版中的参数值'{name}' '{value}' 可以通过GEMO的[tooltip](../api/geom#tooltip)属性进行修改
 ```JSX
 <Chart>
     <Tooltip
@@ -48,6 +47,9 @@
         margin: '10px'
       }}
     />
+  <Gemo tooltip={["x*y*z", (x,y,z) => {
+    return { color: 'red', value: x };
+  }]}
 </Chart>
 ```
 
