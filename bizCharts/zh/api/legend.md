@@ -78,7 +78,7 @@
 
 #### `position`
 * 类型：String
-* 描述：设置图例的显示位置，可设置的值有12个：`left-top`,`left-center`,`left-bottom`,`right-top`,`right-bottom`, `right-center`,`top-left`,`top-center`,`top-bottom`,`bottom-left`,`bottom-center`,`bottom-right`。也可使用`bottom`,`top`,`left`,`right`设置位置，此时对应的值分别为`bottom-center`,`top-center`,`left-bottom`,`right-bottom`。
+* 描述：设置图例的显示位置，可设置的值有12个：`left-top`,`left-center`,`left-bottom`,`right-top`,`right-bottom`, `right-center`,`top-left`,`top-center`,`top-right`,`bottom-left`,`bottom-center`,`bottom-right`。也可使用`bottom`,`top`,`left`,`right`设置位置，此时对应的值分别为`bottom-center`,`top-center`,`left-bottom`,`right-bottom`。
 * 默认值: bottom-center。
 [demo链接](../demo/detail?id=other-legend-position&selectedKey=%E5%85%B6%E4%BB%96%E5%9B%BE%E8%A1%A8)
 
