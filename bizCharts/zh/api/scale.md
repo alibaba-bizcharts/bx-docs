@@ -99,6 +99,7 @@ const scale = {
 #### `tickCount`
 * 类型：number
 * 描述：坐标轴上刻度点的个数，不同的度量类型对应不同的默认值
+* [tickCount Demo](https://bizcharts.net/products/bizCharts/demo/detail?id=g2-line-of-dashed&selectedKey=%E6%8A%98%E7%BA%BF%E5%9B%BE)
 
 #### `tickInterval`
 * 类型：number
