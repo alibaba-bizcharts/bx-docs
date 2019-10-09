@@ -192,6 +192,27 @@ const handleAlwaysShowTooltip = ev => {
 ```
 ![](https://img.alicdn.com/tfs/TB1jAs2vmcqBKNjSZFgXXX_kXXa-569-470.png)
 
+## 图形区域太靠左或太靠右，通过scale range解决
+![](https://img.alicdn.com/tfs/TB1chKviAL0gK0jSZFAXXcA9pXa-1988-1150.png)
+![](https://img.alicdn.com/tfs/TB1PrKriqL7gK0jSZFBXXXZZpXa-692-89.png)
+
+## 双Y轴 刻度线和轴标题 对不齐？用scale tickCount解决
+![](https://img.alicdn.com/tfs/TB1dqWzixD1gK0jSZFKXXcJrVXa-229-477.png)
+[参考case](https://bizcharts.net/products/bizCharts/demo/detail?id=g2-line-of-dashed&selectedKey=%E6%8A%98%E7%BA%BF%E5%9B%BE)
+
+## 雷达图的label太长了，可以折行吗？用label useHtml
+[label useHtml demo](https://bizcharts.net/products/bizCharts/api/label#htmltemplate)
+
+## 雷达图的文字能隐藏么？使用 axis label
+![](https://img.alicdn.com/tfs/TB1taOwiBv0gK0jSZKbXXbK2FXa-796-640.png)
+[axis label API文档](https://bizcharts.net/products/bizCharts/api/axis#label)
+
+## 如何判断图表绘制完成？
+
+```jsx
+chart.on('afterrender', () => {console.log('afterRender')});
+```
+
 
 ## 图表展示bizcharts error 和 slider error 是什么原因？
 bizchart引入了react 16.x的Error Boundary，从而保证了发生在 UI 层的错误不会连锁导致整个应用程序崩溃；未被任何异常边界捕获的异常可能会导致整个 React 组件树被卸载。Error Boundary能够捕获渲染函数、生命周期回调以及整个组件树的构造函数中抛出的异常，捕获后返回bizcharts error这样的提示。
