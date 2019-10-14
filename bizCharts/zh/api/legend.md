@@ -255,6 +255,15 @@ marker = {(x, y, r) => {
 // 自定义图例项点击事件， clickable 为 false 不生效
 <Legend onClick={ev=>{}}/>
 ```
+
+### `defaultClickHandlerEnabled`
+* 类型：Boolean
+* 描述：针对分类类型的图例，用于自定义鼠标点击图例项的交互时，是否保留默认的事件处理，默认为false。设置为 true 时表示保留默认的事件。
+```
+// 自定义图例项点击事件， defaultClickHandlerEnabled 为 true 保留默认的事件
+<Legend onClick={ev=>{}} defaultClickHandlerEnabled/>
+```
+
 ## 分类 html 自定义图例
 
 分类 html 自定义图例大部分属性跟分类图例是一样的，需要额外设置以下属性。
