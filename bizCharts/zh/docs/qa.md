@@ -245,3 +245,8 @@ bizchart引入了react 16.x的Error Boundary，从而保证了发生在 UI 层�
 ```
 
 [体验demo](https://codepen.io/fengyue/pen/WNNwJEZ)
+
+###  图表在display:none 切换到 display:block 没有正常渲染？用触发resize事件
+原理：display:none时，size=0，此时主动触发容器的resize事件，能能获取到最新size，从而触发渲染；
+
+![](https://img.alicdn.com/tfs/TB1IiB6jhD1gK0jSZFsXXbldVXa-1677-596.png_500x500)
