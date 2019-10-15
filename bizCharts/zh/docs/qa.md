@@ -220,3 +220,28 @@ chart.on('afterrender', () => {console.log('afterRender')});
 
 ## 图表展示bizcharts error 和 slider error 是什么原因？
 bizchart引入了react 16.x的Error Boundary，从而保证了发生在 UI 层的错误不会连锁导致整个应用程序崩溃；未被任何异常边界捕获的异常可能会导致整个 React 组件树被卸载。Error Boundary能够捕获渲染函数、生命周期回调以及整个组件树的构造函数中抛出的异常，捕获后返回bizcharts error这样的提示。
+
+## 实现拖动缩放交互，用zoom 或 drag 
+
+```jsx
+<Chart
+    height={window.innerHeight}
+    data={dv}
+    padding={[60, 30, 30]}
+    scale={scale}
+    onGetG2Instance={g2Chart => {
+      g2Chart.animate(false);
+      chart = g2Chart;
+
+      chart.interact('drag', {
+        type: 'XY'
+      }).interact('zoom', {
+        type: 'XY'
+      });
+
+    }}
+    forceFit
+></Chart>
+```
+
+[体验demo](https://codepen.io/fengyue/pen/WNNwJEZ)
