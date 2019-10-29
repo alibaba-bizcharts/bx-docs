@@ -250,3 +250,10 @@ bizchart引入了react 16.x的Error Boundary，从而保证了发生在 UI 层�
 原理：display:none时，size=0，此时主动触发容器的resize事件，能能获取到最新size，从而触发渲染；
 
 ![](https://img.alicdn.com/tfs/TB1IiB6jhD1gK0jSZFsXXbldVXa-1677-596.png_500x500)
+
+### 数据中有小时，但是坐标轴只显示年月日? 用scale mask
+![](https://img.alicdn.com/tfs/TB1yWgukFT7gK0jSZFpXXaTkpXa-404-100.png)
+![](https://img.alicdn.com/tfs/TB1cYwAkKH2gK0jSZJnXXaT1FXa-978-151.png_500x500)
+
+[scale mask API](https://bizcharts.net/products/bizCharts/api/scale#mask)
+
