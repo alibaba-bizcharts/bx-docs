@@ -304,6 +304,8 @@ size 支持映射值如下：
 />
 ```
 
+![](https://img.alicdn.com/tfs/TB13OOzk7P2gK0jSZPxXXacQpXa-2156-1162.png)
+
 #### `select`
 * 类型：	Boolean | Array
 * 描述：开启、关闭以及设置 shape 对于鼠标 click 事件的响应效果。BizCharts 默认仅为饼图开启了选中效果。
