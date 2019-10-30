@@ -245,7 +245,7 @@ marker = {(x, y, r) => {
 * 描述：针对分类类型的图例，用于自定义鼠标 hover 图例项的交互，当 hoverable 为 false 不生效。
 ```js
  // 自定义图例项鼠标 hover 事件，hoverable 为 false 不生效
-<Legend onHover={ev=>{}}/>
+<Legend onHover={ev=>{console.log(ev)}}/>
 ```
 
 #### `onClick`
@@ -253,8 +253,10 @@ marker = {(x, y, r) => {
 * 描述：针对分类类型的图例，用于自定义鼠标点击图例项的交互，当 clickable 为 false 不生效。
 ```js
 // 自定义图例项点击事件， clickable 为 false 不生效
-<Legend onClick={ev=>{}}/>
+<Legend onClick={ev=>{console.log(ev)}}/>
 ```
+![](https://img.alicdn.com/tfs/TB1YpOyk.D1gK0jSZFGXXbd3FXa-2726-1236.png_800x800)
+
 ## 分类 html 自定义图例
 
 分类 html 自定义图例大部分属性跟分类图例是一样的，需要额外设置以下属性。
@@ -351,7 +353,7 @@ marker = {(x, y, r) => {
 
 自定义图例时需要用户自己声明具体的图例项 items(该属性是一个对象数组，数组中每一项为一个对象类型，结构为： { value: '', marker:{fill: 'red'}})以及图例项的 hover 和 click 事件。
 
-[示例](../demo/detail?id=g2-double-axes&selectedKey=概览)
+[custom API Demo 示例](../demo/detail?id=g2-double-axes&selectedKey=概览)
 
 
 #### `items`
@@ -366,12 +368,12 @@ marker = {(x, y, r) => {
     { value: 'call', fill: '#99d8c9', marker: 'shape' },
     { value: 'people', fill: '#fdae6b', marker: 'shape' },
   ]}
-  onHover={ev => {}} // 自定义 hover 事件
-  onClick={ev => {}} // 自定义 click 事件
+  onHover={ev => {console.log(ev)}} // 自定义 hover 事件
+  onClick={ev => {console.log(ev)}} // 自定义 click 事件
 />
 ```
 
-[示例](../demo/detail?id=g2-double-axes&selectedKey=概览)
+[items API Demo 示例](../demo/detail?id=g2-double-axes&selectedKey=概览)
 
 
 ```html
