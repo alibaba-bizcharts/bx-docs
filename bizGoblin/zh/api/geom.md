@@ -141,7 +141,7 @@ shape 支持的映射值如下：
 <Geom
   shape={['city', (city)=>{
     if(city == 'hangzhou'){
-	  return circle;
+	  return 'circle';
 	}
 	return 'rect';
   }]}
