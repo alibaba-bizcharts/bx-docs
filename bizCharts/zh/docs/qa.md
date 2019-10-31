@@ -194,6 +194,68 @@ const handleAlwaysShowTooltip = ev => {
 ```
 ![](https://img.alicdn.com/tfs/TB1jAs2vmcqBKNjSZFgXXX_kXXa-569-470.png)
 
+## 图形区域太靠左或太靠右? 用scale range
+![](https://img.alicdn.com/tfs/TB1chKviAL0gK0jSZFAXXcA9pXa-1988-1150.png_500x500)
+![](https://img.alicdn.com/tfs/TB1PrKriqL7gK0jSZFBXXXZZpXa-692-89.png_500x500)
+
+## 双Y轴 刻度线和轴标题 对不齐？用scale tickCount
+![](https://img.alicdn.com/tfs/TB1dqWzixD1gK0jSZFKXXcJrVXa-229-477.png)
+
+[参考case](https://bizcharts.net/products/bizCharts/demo/detail?id=g2-line-of-dashed&selectedKey=%E6%8A%98%E7%BA%BF%E5%9B%BE)
+
+## 雷达图的label太长了，可以折行吗？用label useHtml
+[label useHtml demo](../api/label#htmltemplate)
+
+## 雷达图的文字能隐藏么？用 axis label
+![](https://img.alicdn.com/tfs/TB1taOwiBv0gK0jSZKbXXbK2FXa-796-640.png_500x500)
+
+[axis label API文档](https://bizcharts.net/products/bizCharts/api/axis#label)
+
+## 如何判断图表绘制完成？
+
+```jsx
+chart.on('afterrender', () => {console.log('afterRender')});
+```
+## 使用slider时，不是用来做为日期的调节，而是用来对x轴整数的过滤，但slider显示的是小数，怎么才让显示成整数? 用scale formatter
+![](https://img.alicdn.com/tfs/TB1c8myiy_1gK0jSZFqXXcpaXXa-2218-1172.png_500x500)
+ [Slider scale formatter API](../api/sliderPlugin.md#scales)
 
 ## 图表展示bizcharts error 和 slider error 是什么原因？
 bizchart引入了react 16.x的Error Boundary，从而保证了发生在 UI 层的错误不会连锁导致整个应用程序崩溃；未被任何异常边界捕获的异常可能会导致整个 React 组件树被卸载。Error Boundary能够捕获渲染函数、生命周期回调以及整个组件树的构造函数中抛出的异常，捕获后返回bizcharts error这样的提示。
+
+## 实现拖动缩放交互，用zoom 或 drag 
+
+```jsx
+<Chart
+    height={window.innerHeight}
+    data={dv}
+    padding={[60, 30, 30]}
+    scale={scale}
+    onGetG2Instance={g2Chart => {
+      g2Chart.animate(false);
+      chart = g2Chart;
+
+      chart.interact('drag', {
+        type: 'XY'
+      }).interact('zoom', {
+        type: 'XY'
+      });
+
+    }}
+    forceFit
+></Chart>
+```
+
+[体验demo](https://codepen.io/fengyue/pen/WNNwJEZ)
+
+###  图表在display:none 切换到 display:block 没有正常渲染？用触发resize事件
+原理：display:none时，size=0，此时主动触发容器的resize事件，能能获取到最新size，从而触发渲染；
+
+![](https://img.alicdn.com/tfs/TB1IiB6jhD1gK0jSZFsXXbldVXa-1677-596.png_500x500)
+
+### 数据中有小时，但是坐标轴只显示年月日? 用scale mask
+![](https://img.alicdn.com/tfs/TB1yWgukFT7gK0jSZFpXXaTkpXa-404-100.png)
+![](https://img.alicdn.com/tfs/TB1cYwAkKH2gK0jSZJnXXaT1FXa-978-151.png_500x500)
+
+[scale mask API](https://bizcharts.net/products/bizCharts/api/scale#mask)
+

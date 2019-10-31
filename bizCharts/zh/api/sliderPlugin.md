@@ -96,6 +96,8 @@ slider $ npm run demo
 #### `scales`
 * 类型：object
 * 描述：Used to define the columns for the `xAxis` and `yAxis` fields for the same column definitions in the action's chart.
+* 具体语法参考 [Scale API](../api/scale)
+
 
 Sample code:
 
@@ -109,7 +111,19 @@ Sample code:
       }}
   />
   ```
-
+  ```js
+  <Slider
+      scales={{
+        amount: {
+          // 此demo用于X轴为非日期类型时用于格式化number类型的数据；
+          formatter: function(value){
+            return Math.round(value);
+          }
+        }
+      }}
+  />
+  ```
+ 
 * `fillerStyle`		object
 * 类型：number | string
 * 描述：

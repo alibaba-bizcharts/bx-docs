@@ -99,10 +99,15 @@ const scale = {
 #### `tickCount`
 * 类型：number
 * 描述：坐标轴上刻度点的个数，不同的度量类型对应不同的默认值
+* [tickCount Demo](https://bizcharts.net/products/bizCharts/demo/detail?id=g2-line-of-dashed&selectedKey=%E6%8A%98%E7%BA%BF%E5%9B%BE)
 
 #### `tickInterval`
 * 类型：number
 * 描述：用于指定坐标轴各个标度点的间距，是**原始数据**之间的间距差值，**`tickCount` 和 `tickInterval` 不可以同时声明。**
+
+#### `minTickInterval`
+* 类型：number
+* 描述：用于指定坐标轴各个标度点的最小间距。例如当数据值比较小，但是刻度间距必须整数时（实际可能会出现浮点数），可以将 minTickInterval 配置为1。**
 
 #### `minLimit`
 * 类型：number
