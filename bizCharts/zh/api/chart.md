@@ -141,8 +141,8 @@ const scale = {
 - padding 中存在 'auto'，时会自动计算边框，目前仅考虑 axis 和 legend 占用的边框。
 - 另外也支持设置百分比，如 padding: [ '20%', '30%' ]，该百分比相对于整个图表的宽高。
 
-`paddding="auto"` vs 没有设置padding
-- ![paddding="auto"](https://img.alicdn.com/tfs/TB1it.Nbv1H3KVjSZFBXXbSMXXa-632-451.png_300x300q90.jpg)
+`padding="auto"` vs 没有设置padding
+- ![padding="auto"](https://img.alicdn.com/tfs/TB1it.Nbv1H3KVjSZFBXXbSMXXa-632-451.png_300x300q90.jpg)
 - ![没有设置padding](https://img.alicdn.com/tfs/TB1dbgPbA5E3KVjSZFCXXbuzXXa-625-454.png_300x300q90.jpg)
 
 
