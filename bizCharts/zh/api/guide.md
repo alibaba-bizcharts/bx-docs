@@ -383,7 +383,7 @@ const { Line } = Guide;
 * 类型：String
 * 描述：html 的垂直对齐方式，可取值为：`'top' | 'middle' | 'bottom'`，默认值为 `middle`。
 
-#### `offsetX`		Number
+#### `offsetX`
 * 类型：Number
 * 描述：x 方向的偏移量。
 
