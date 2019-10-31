@@ -148,9 +148,9 @@
 * 描述：回调函数，用于格式化图例每项的文本显示。
 ```js
 <Legend
-	itemFormatter(val) {
-	  return val + "xxx"; // val 为每个图例项的文本值
-	}
+    itemFormatter = {val => {
+      return val + "xxx"; // val 为每个图例项的文本值
+    }}
 />
 
 ```
