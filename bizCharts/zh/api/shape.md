@@ -104,12 +104,9 @@ Shape.registerShape('interval', 'rect', {
 ```
 
 ### parsePoint
-
 说明：将 0 - 1 范围内的点转化为画布上的实际坐标。
-
 #### 参数
-
-- `point`       **{x: number, y: number}**
+- `point`       **object{x: number, y: number}**
 
 如：
 
@@ -119,50 +116,37 @@ Shape.registerShape('interval', 'rect', {
   y: 0.34
 }
 ```
-
 #### 返回值
-
 返回画布上的坐标，数据结构同参数 `point`。
 
 ### parsePoints
-
 说明：将一组 0 - 1 范围内的点转化为画布上的实际坐标。
-
 #### 参数
-
 - `points`       **Array<{x: number, y: number}>**
 
 `point` 的数组，表示一组归一后的坐标。
 
 如：
-
 ```js
 [
   { x: 0.3, y: 0.34 },
   { x: 0.3, y: 0.34 }
 ]
 ```
-
 #### 返回值
-
 返回对应的画布上的坐标点数组，数据结构同 `points`。
 
 ### parsePath
-
 将归一化的 path 转为基于画布坐标的 path.
 
 #### 参数
-
 - `path`        **Path**
 
 连接各个关键的路径，例如：`[[ 'M', 0, 0 ], [ 'L', 1, 1 ]]`。
-
 - `isCircle`        **boolean**
 
 是否是极坐标。如果是极坐标，则把 path 转换为圆弧。
-
 #### 返回值     **Path**
-
 返回基于画布坐标的 path。
 
 ## 代码示例
