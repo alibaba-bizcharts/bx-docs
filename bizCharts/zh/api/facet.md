@@ -110,6 +110,8 @@
 
 ## 分面类型
 
+[tutorial-facet G2详细文档 参考](https://www.yuque.com/antv/g2-docs/tutorial-facet)
+
 <span id="rect"></span>
 ### rect 矩形分面
 
