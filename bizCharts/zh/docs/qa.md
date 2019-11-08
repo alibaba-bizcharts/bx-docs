@@ -259,3 +259,6 @@ bizchart引入了react 16.x的Error Boundary，从而保证了发生在 UI 层�
 
 [scale mask API](https://bizcharts.net/products/bizCharts/api/scale#mask)
 
+### 一个line类型的图表里面，如果有多条线，页面加载的时候，能默认隐藏其中几条吗？用filter
+![](https://img.alicdn.com/tfs/TB1bDEWl8v0gK0jSZKbXXbK2FXa-1924-918.png)
+![](https://img.alicdn.com/tfs/TB1KfUWl8v0gK0jSZKbXXbK2FXa-981-212.png)
