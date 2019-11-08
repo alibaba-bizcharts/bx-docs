@@ -330,3 +330,6 @@ ReactDOM.render((
   </Chart>
 ), document.getElementById('mountNode'));
 ```
+
+### ToolTip属性脑图
+![image](https://img.alicdn.com/tfs/TB1QVU.lYr1gK0jSZR0XXbP8XXa-746-1417.png)
