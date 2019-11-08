@@ -205,6 +205,7 @@ Array:[[fieldString1, callback1], [fieldString2, callback2]]
   ]}
 />
 ```
+![](https://img.alicdn.com/tfs/TB1KfUWl8v0gK0jSZKbXXbK2FXa-981-212.png)
 
 > 改属性可以设置默认哪些图表选中和不选中状态。
 
