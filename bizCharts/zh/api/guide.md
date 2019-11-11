@@ -130,7 +130,7 @@ const { Line } = Guide;
   />
 </Guide>
 ```
-
+![image](https://cdn.nlark.com/yuque/0/2018/png/100996/1539840373775-8ae52cb7-b1b8-4ef3-9053-006721abf61c.png)
 [详见demo](https://bizcharts.net/products/bizCharts/demo/detail?id=line-series)
 
 
@@ -206,6 +206,7 @@ const { Line } = Guide;
   />
 </Guide>
 ```
+![image](https://cdn.nlark.com/yuque/0/2018/png/100996/1539840429277-53a8e36c-8a7e-41cf-93fd-43ca7c2ab444.png)
 
 #### `top`
 * 类型： Boolean
@@ -262,6 +263,7 @@ const { Line } = Guide;
   />
 </Guide>
 ```
+![image](https://cdn.nlark.com/yuque/0/2018/png/100996/1539840397466-d3d5636d-aad3-4b51-bb25-83291c3523ec.png)
 
 #### `top`
 * 类型：  Boolean
@@ -320,6 +322,7 @@ const { Line } = Guide;
     />
 </Guide>
 ```
+![image](https://cdn.nlark.com/yuque/0/2018/png/100996/1539840452881-05e46776-a498-4037-9741-9c2df36a665e.png)
 
 #### `top`
 * 类型：Boolean
@@ -360,6 +363,7 @@ const { Line } = Guide;
   />
 </Guide>
 ```
+![image](https://cdn.nlark.com/yuque/0/2018/png/100996/1539840479814-39752f61-071c-4145-8705-efc0264e2c2e.png)
 
 #### `position`
 * 类型：Object | Function |Array
@@ -425,6 +429,8 @@ const { Line } = Guide;
   />
 </Guide>
 ```
+`注意`:
+* arc辅助弧线仅在polar[坐标系（Coord）](./coord)下生效。
 
 #### `top`
 * 类型：Boolean
@@ -464,6 +470,8 @@ const { Line } = Guide;
   apply={array} //可选，设定regionFilter只对特定geom类型起作用  />
 </Guide>
 ```
+![image](https://cdn.nlark.com/yuque/0/2018/png/100996/1539840527395-f4893edb-7867-43de-8b46-1ac0a9ff06a8.png)
+
 #### `top`
 * 类型: Boolean
 * 描述: 指定 guide 是否绘制在 canvas 最上层，默认为 false, 即绘制在最下层。
@@ -499,7 +507,7 @@ const { Line } = Guide;
 
 <span id = "DataMarker"></span>
 ### DataMarker
-特殊数据标注点，适用于折线图和面积图。
+特殊数据标注点，适用于折线图和面积图。默认状态的特殊数据标注点由point、line、text三部分组成，同时开放接口对各部分是否显示及显示样式等进行设置
 ```js
 <Guide>
   <DataMarker
@@ -521,6 +529,7 @@ const { Line } = Guide;
   />
 </Guide>
 ```
+![image](https://cdn.nlark.com/yuque/0/2018/png/100996/1539840618454-c50783aa-0717-4c18-b2c2-5a7c4da21dd0.png)
 
 #### `top`
 * 类型: Boolean
@@ -592,6 +601,8 @@ const { Line } = Guide;
   />
 </Guide>
 ```
+![image](https://cdn.nlark.com/yuque/0/2018/png/100996/1539840654424-0c57efec-4c90-4994-a29b-5cf2404cbcd9.png)
+
 #### `top`
 * 类型: Boolean
 * 描述: 指定 guide 是否绘制在 canvas 最上层，默认为 false, 即绘制在最下层。
@@ -647,3 +658,21 @@ const { Line } = Guide;
 * 类型: String
 * 描述: 标注点朝向：'upward' | 'downward'
 * 默认值: 'upward'，即向上
+
+### 动态辅助标记
+辅助标记接受的位置信息的参数都是原始数据值，辅助标记一旦生成后就是固定了位置，如果数据发生改变，辅助标记就需要删除掉重新创建。
+```js
+// 清除图表
+chart.clear();
+// 重新声明图形语法
+chart.point().position('carat*price');
+chart.guide().html([ newX, newY ], htmlstring);
+chart.render();
+```
+* newX,newY 是重新计算的位置
+如果数据是动态更新的那么这个过程需要频繁进行，基于这种场景 guide 提供两种计算动态位置的：
+* 可以使用'min', 'median', 'max' 字符串代表原始值的最小值、平均值、最大值，例如： [0, 'min'] 表示 x 轴上数值为 0，y 轴位置在数值的最小值上；
+* 表示位置的数组可以换成回调函数，函数原型： function(xScale, yScale) {return [];}
+  - xScale, yScale 映射到 x 轴上的字段生成的度量，详情查看 度量, api;
+  - 分类度量常用的值是 values 包含了所有的分类，连续度量常用的是 min, max
+![image](https://cdn.nlark.com/yuque/0/2018/png/100996/1539840695501-71eaf8b1-ad9d-4bcc-9d84-46b2ca40671b.png)
