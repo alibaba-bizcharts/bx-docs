@@ -3,11 +3,49 @@
 
 [`<Geom>`](geom) 几何标记上的标注文本组件。
 
+恰当的文本标注可以提高可视化图表的可读性。除了提供文本标签标注的功能之外，G2 还支持文本的格式化以及自定义 html 文本标签的功能。
+![](https://gw.alipayobjects.com/zos/rmsportal/lSasYkLULFIHYIpEIeUw.png)
+
+
 ## 父组件
 [`<Geom />`](geom)
 
 ## 子组件
 无
+
+## 如何使用
+在每个几何标记 Geom 内使用 Label 组件。
+```js
+<Chart height={400} data={data} forceFit>
+    <Axis name="year" />
+    <Axis name="sales" />
+    <Tooltip
+      crosshairs={{
+        type: "y"
+      }}
+    />
+    // 指定显示文本标签
+    <Geom type="interval" position="year*sales"> 
+      <Label 
+        content="percent"
+        offset={10} // 设置坐标轴文本 label 距离坐标轴线的距离
+        textStyle= {{
+          textAlign: 'center', // 文本对齐方向，可取值为： start middle end
+          fill: '#404040', // 文本的颜色
+          fontSize: '12', // 文本大小
+          fontWeight: 'bold', // 文本粗细
+          textBaseline: 'top' // 文本基准线，可取 top middle bottom，默认为middle
+        }}
+        //textStyle={()=>{}}// 支持回调 
+        rotate={30}
+        autoRotate= {false} // 是否需要自动旋转，默认为 true
+        formatter={()=>{}}, // 回调函数，用于格式化坐标轴上显示的文本信息
+        htmlTemplate= {()=>{}}, // 使用 html 自定义 label
+      />
+    </Geom>
+</Chart>
+```
+![](https://cdn.nlark.com/yuque/0/2018/png/100996/1539841763704-ec891d93-1a16-4eb7-aa55-3616b9f0e092.png?x-oss-process=image/resize,w_746)
 
 ## API
 #### `content`
@@ -104,6 +142,7 @@
   }}
 />
 ```
+![](https://cdn.nlark.com/yuque/0/2018/png/100996/1539841790486-6ef488aa-812c-4ddf-a9d1-1c6df32cd94a.png?x-oss-process=image/resize,w_746)
 
 #### `htmlTemplate`
 * 类型：Function
@@ -123,3 +162,6 @@
   }
 />
 ```
+
+![](https://cdn.nlark.com/yuque/0/2018/png/100996/1539841824912-9d43e749-c68d-47bd-9d39-e8f4a405d8f1.png?x-oss-process=image/resize,w_404)
+
