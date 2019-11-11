@@ -251,9 +251,11 @@ const style={fontSize: '12'}
 * 描述：获取 chart 实例的回调。每当生成一个新 chart 时就会调用该函数，并以新生成的 chart 作为回调参数。
 
 ```js
+let chartInt;
 <chart
   onGetG2Instance={g2Chart => {
-	g2Chart.animate(false);
+  g2Chart.animate(false);
+  chartInt = g2Chart; // 保存实例，用于在其他地方调用实例方法
 	console.log(g2Chart);
   }}
 />
@@ -432,7 +434,7 @@ let chartIns;
 
 #### 图形元素事件
 * 类型：Function
-* 描述：图形元素事件属性名 = on + 图形元素名称 + 基础事件名，总计220种组合。
+* 描述：图形元素事件，即组成图表的各种图形元素；图形元素事件属性名 = on + 图形元素名称 + 基础事件名，总计220种组合。
 * 示例：`onPointClick`, `onAxisLabelClick`;
 
 | 图形元素名称                                                              |
@@ -460,3 +462,52 @@ let chartIns;
   </Chart>
 ```
 
+### 使用实例绑定事件
+可以先调用onGetG2Instance()方法去获得chart实例，再使用实例来绑定事件。
+```js
+<Chart height={400} data={data} forceFit 
+    onGetG2Instance={g2Chart => {
+      g2Chart.on('tooltip:change',ev=>{
+        console.log('tooltipOnchange--->',ev)
+      })
+     }} 
+/>
+```
+#### 1. 画布基础事件，如 mousedown click dblclick 等；
+```js
+chart.on('mousedown', ev => {});
+chart.on('mousemove', ev => {});
+chart.on('mouseleave', ev => {});
+chart.on('mouseup', ev => {});
+chart.on('click', ev => {});
+chart.on('dblclick', ev => {});
+chart.on('touchstart', ev => {});
+chart.on('touchmove', ev => {});
+chart.on('touchend', ev => {});
+```
+
+#### 2. 绘图区域事件，如 plotmove plotclick 等；
+```js
+chart.on('plotenter', ev => {});
+chart.on('plotmove', ev => {});
+chart.on('plotleave', ev => {});
+chart.on('plotclick', ev => {});
+chart.on('plotdblclick', ev => {});
+```
+
+### 3. tooltip 事件；
+```js
+chart.on('tooltip:show', ev => {}); // tooltip 展示
+chart.on('tooltip:hide', ev => {}); // tooltip 隐藏
+chart.on('tooltip:change', ev => {}); // tooltip 内容发生变化的时候
+```
+### 4. 图形元素事件
+图形元素事件属性名 = 图形元素名称 + 基础事件名，总计220种组合。
+![](https://cdn.nlark.com/yuque/0/2018/png/100996/1539842016314-48282592-bbb6-4c54-a09e-a471ec91a11b.png)
+```js
+chart.on('point:click', ev => {});
+chart.on('axis-label:click', ev => {});
+```
+下图展示了图表各个组件的名称
+
+![](https://gw.alipayobjects.com/zos/rmsportal/IXRZJVKWYEdafYAzbsXO.png)
