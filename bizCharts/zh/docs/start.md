@@ -75,8 +75,45 @@ ReactDOM.render((
 
 ![](https://img.alicdn.com/tps/TB1PVaoPFXXXXcSaXXXXXXXXXXX-519-401.png)
 
-## Dependencies
+## 其他配置
+### 获取chart实例
+```js
+class Line extends React.Component {
+  render() {
+    let chartIns; //初始化实例
+    ...
+    return (
+      <div>
+        <Chart 
+	  height={400} 
+	  data={data}
+	  forceFit
+          onGetG2Instance={chart => {
+	    //获取 chart 实例的回调。每当生成一个新 chart 时就会调用该函数，并以新生成的 chart 作为回调参数。
+            chartIns=chart; 
+          }}
+	  onPlotMove={ev => {
+	    var point = {
+	      x: ev.x,
+	      y: ev.y
+	    };
+	    // 调用实例上的方法
+	    var items = chartIns.getTooltipItems(point);
+	    console.log(items);
+	  }}
+          >
+        ...
+        </Chart>
+      </div>
+    );
+  }
+}
 
+ReactDOM.render(<Basiccolumn />, mountNode)
+
+```
+
+## Dependencies
 ```json
 {
   "peerDependencies": {
@@ -93,8 +130,6 @@ ReactDOM.render((
 
 ## Browser Support Versions
 支持Chrome，Safari，IE11+ 浏览器
-
-
 
 ## 体验改进计划说明
 G2 decided to terminate the "Experience Improvement Program". In verson @antv/g2@3.4.7（released at 2018.12.26） and above, all tracking code is removed, no unexpected remote request will be sent while you are using G2. And Bizcharts Upgrade the dependent version the first time at 2018.12.26 24:00.
