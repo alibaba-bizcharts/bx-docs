@@ -84,7 +84,7 @@ const title = {
   position: 'start' || 'center' || 'end', // 标题的位置，**新增**
 }
 ```
-提示：当需要配置坐标轴标题文本时，在该轴的 scale 中设置 alias 属性，如下所示，更多 scale 设置请查看 scale。
+提示：当需要坐标轴设置别名时，在该轴的 scale 中设置 alias 属性，如下所示，更多 scale 设置请查看 scale。
 
 ```js
 const scale = {
@@ -114,7 +114,7 @@ const scale = {
 
 #### `tickLine`
 * 类型： Object | null
-* 描述：设置坐标轴的刻度线。如果该属性值为 null 则表示不展示。
+* 描述：在 tickLine 上可以配置坐标轴刻度线的长短（length）、颜色（stroke）、粗细（lineWidth），或者控制它的展示（tickLine: null，不展示刻度线）。
 
 ```js
 //可配置样式
@@ -122,8 +122,11 @@ const tickLine = {
   lineWidth: 1, // 刻度线宽
   stroke: '#ccc', // 刻度线的颜色
   length: 5, // 刻度线的长度, **原来的属性为 line**,可以通过将值设置为负数来改变其在轴上的方向
+  alignWithLabel:true
 }
 ```
+alignWithLabel 设置为fasle，且数据类型为category时，tickLine的样式变为category数据专有样式
+![image](https://cdn.nlark.com/yuque/0/2018/png/100996/1539839515091-4790c50c-7fb5-4b7d-b941-d6909b77db37.png)
 
 提示：刻度线个数、范围、内容可以通过该轴的 scale 配置，如下所示，更多 scale 配置请查看 scale。
 
@@ -142,6 +145,7 @@ const scale = {
   <Axis name="sold" tickLine={tickLine}/>
 </Chart>
 ```
+
 <span id="label"></span>
 
 ####  `label`
