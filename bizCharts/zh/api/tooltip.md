@@ -44,6 +44,16 @@
   * 'click': 鼠标点击出发；
   * 'none': 不触发 tooltip，用户通过 `chart.showTooltip()` 和 `chart.hideTooltip()` 来控制 tooltip 的显示和隐藏。
 
+当然在任何触发方式下，用户都可以通过调用 `chart.showTooltip(point)` 可以控制在固定的位置显示提示信息，参数 point 为画布上的坐标点，格式如下：
+```js
+const point = {
+  x: 23,
+  y: 30
+};
+```
+另外还提供了 chart.getXY({xField: value, yField: value}) 方法，用于获取数据对应在画布空间的坐标。
+![image](https://cdn.nlark.com/yuque/0/2018/png/100996/1539840191028-fded845c-8cdb-4112-8fbd-fe36bd588ab1.png?x-oss-process=image/resize,w_746)
+
 #### `inPlot`
 * 类型: Boolean
 * 描述: 设置是否将 tooltip 限定在绘图区域内，默认为 true，即限定在绘图区域内。
@@ -192,38 +202,38 @@ itemTpl= '<li data-index={index}>'
 * 描述: 用于控制是否允许鼠标进入 tooltip，默认为 false，即不允许进入。
 
 ### canvasTooltip 属性
-通过设置配置项useHtml:false可以切换为canvasTooltip，以下配置项只有在useHtml为false的时候才能生效。
+通过设置配置项useHtml:false可以切换为canvasTooltip，以下配置项只有在useHtml为false的时候才能生效。样式详情见 [绘图属性](connector)。
 
 #### `boardStyle`
 * 类型: Object
-* 描述: 用于控制tooltip背景板的显示样式，更详细见 [绘图属性]()
+* 描述: 用于控制tooltip背景板的显示样式。
 
 #### `titleStyle`
 * 类型: Object
-* 描述: 用于控制tooltip标题的显示样式，更详细见 [绘图属性]()
+* 描述: 用于控制tooltip标题的显示样式。
 
 #### `nameStyle`
 * 类型: Object
-* 描述: 用于控制tooltip每一项 name 的显示样式，更详细见 [绘图属性]()
+* 描述: 用于控制tooltip每一项 name 的显示样式。
 
 #### `valueStyle`
 * 类型: Object
-* 描述: 用于控制tooltip每一项 value 的显示样式，更详细见 [绘图属性]()
+* 描述: 用于控制tooltip每一项 value 的显示样式。
 
 #### `itemGap`
 * 类型: Number
 * 描述: 用于控制tooltip每一项之间的间距
 
 ### miniTooltip 属性
-mini tooltip是一种极简的tooltip形式，只显示单个数据的数值。通过设置配置项type:mini切换为miniTooltip，以下配置项只有在type为'mini'的时候才能生效。
+mini tooltip是一种极简的tooltip形式，只显示单个数据的数值。通过设置配置项type:mini切换为miniTooltip，以下配置项只有在type为'mini'的时候才能生效。样式详情见 [绘图属性](connector)。
 
 #### `boardStyle`
 * 类型: Object
-* 描述: 用于控制tooltip背景板的显示样式，更详细见 [绘图属性]()
+* 描述: 用于控制tooltip背景板的显示样式。
 
 #### `valueStyle`
 * 类型: Object
-* 描述: 用于控制tooltip每一项 value 的显示样式，更详细见 [绘图属性]()
+* 描述: 用于控制tooltip每一项 value 的显示样式。
 
 #### `triangleWidth`
 * 类型: Number
