@@ -126,14 +126,19 @@ rect 矩形分面是 BizCharts 的默认分面类型。支持按照一个或者�
 </Facet>
 ```
 分面矩阵每列按照 `cut` 字段划分，每行按照 `clarity` 字段划分。
+![image](https://cdn.nlark.com/yuque/0/2018/png/100996/1539841212578-0df8809e-9e26-4860-b171-88ecb7b645a7.png)
+* 设置 `fields` 字段表示行和列的字段名时，可以设置行或者列为 null,会变成单行或者单列的分面
 
 <span id="list"></span>
 ### list 水平列表分面
 
 该类型分面可以通过设置 `scale` 属性来指定每行可显示分面的个数，超出时会自动换行。
+![image](https://cdn.nlark.com/yuque/0/2018/png/100996/1539841260411-db2c30cd-8de0-4f1a-b6af-3d70ac8f413c.png)
 
 <span id="circle"></span>
 ### circle 圆形分面
+
+![image](https://cdn.nlark.com/yuque/0/2018/png/100996/1539841293253-3bb3c7c1-7278-4fc2-83fb-019c587ccde9.png)
 
 <span id="tree"></span>
 ### tree 树形分面
@@ -143,10 +148,17 @@ rect 矩形分面是 BizCharts 的默认分面类型。支持按照一个或者�
 - lineSmooth，各个树节点的连接线是否是平滑的曲线，默认为 false。
 
 下图展示了树形多层级的分面。
+![](https://cdn.nlark.com/yuque/0/2018/png/100996/1539841321561-6d0b227b-f6d0-41b9-bf6d-54e66f8c5928.png)
 
 <span id="mirror"></span>
 ### mirror 镜像分面
+镜像分面一般用于对比两类数据的场景，例如 男女的比例、正确错误的对比等
+
 通过配置 `transpose` 属性为 true，可以将镜像分面翻转。
+![](https://cdn.nlark.com/yuque/0/2018/png/100996/1539841360041-fd9983ef-05ff-4576-99a5-428b0d6cf61a.png)
 
 <span id="matrix"></span>
 ### matrix 矩阵分面
+矩阵分面主要对比数据中多个字段之间的关系，例如常见的散点矩阵图
+
+![](https://cdn.nlark.com/yuque/0/2018/png/100996/1539841390750-797e948c-e603-4f44-a64e-38898989b792.png)
