@@ -1,12 +1,7 @@
 
 # View
 
-视图，由 Chart 生成和管理，拥有自己独立的数据源、坐标系和图层，用于异构数据的可视化以及图表组合，一个 Chart 由一个或者多个视图 View 组成。
-
-Chart 是一种特殊的View，两者之间也有一定的差异：
-- View 的功能 Chart 都具有
-- Tooltip（提示信息）和 Legend（图例）仅在 Chart 上支持
-- Chart 上可以创建 View ，但是 View 不再支持创建子 View
+视图，由 Chart 生成和管理，拥有自己独立的数据源、坐标系和图层，用于异构数据的可视化以及图表组合，一个 Chart 由一个或者多个视图 View 组成。因此 view 上的 api 同 chart 基本相同。ew 不再支持创建子 View
 
 ## 使用说明
 ### 父组件
