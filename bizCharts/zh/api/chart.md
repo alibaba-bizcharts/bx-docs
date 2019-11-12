@@ -434,7 +434,7 @@ let chartIns;
 
 #### 图形元素事件
 * 类型：Function
-* 描述：图形元素事件，即组成图表的各种图形元素；图形元素事件属性名 = on + 图形元素名称 + 基础事件名，总计220种组合。
+* 描述：图形元素事件属性名 = on + 图形元素名称 + 基础事件名，总计220种组合。
 * 示例：`onPointClick`, `onAxisLabelClick`;
 
 | 图形元素名称                                                              |
@@ -462,52 +462,9 @@ let chartIns;
   </Chart>
 ```
 
-### 使用实例绑定事件
-可以先调用onGetG2Instance()方法去获得chart实例，再使用实例来绑定事件。
-```js
-<Chart height={400} data={data} forceFit 
-    onGetG2Instance={g2Chart => {
-      g2Chart.on('tooltip:change',ev=>{
-        console.log('tooltipOnchange--->',ev)
-      })
-     }} 
-/>
-```
-#### 1. 画布基础事件，如 mousedown click dblclick 等；
-```js
-chart.on('mousedown', ev => {});
-chart.on('mousemove', ev => {});
-chart.on('mouseleave', ev => {});
-chart.on('mouseup', ev => {});
-chart.on('click', ev => {});
-chart.on('dblclick', ev => {});
-chart.on('touchstart', ev => {});
-chart.on('touchmove', ev => {});
-chart.on('touchend', ev => {});
-```
 
-#### 2. 绘图区域事件，如 plotmove plotclick 等；
-```js
-chart.on('plotenter', ev => {});
-chart.on('plotmove', ev => {});
-chart.on('plotleave', ev => {});
-chart.on('plotclick', ev => {});
-chart.on('plotdblclick', ev => {});
-```
+![](https://camo.githubusercontent.com/f5f35aa7e67869c5b5511af81503e1c7f6c44043/68747470733a2f2f63646e2e6e6c61726b2e636f6d2f79757175652f302f323031382f706e672f3130303939362f313533393834323031363331342d34383238323539322d626262362d346335342d613039652d6134373165633931613131622e706e67)
 
-### 3. tooltip 事件；
-```js
-chart.on('tooltip:show', ev => {}); // tooltip 展示
-chart.on('tooltip:hide', ev => {}); // tooltip 隐藏
-chart.on('tooltip:change', ev => {}); // tooltip 内容发生变化的时候
-```
-### 4. 图形元素事件
-图形元素事件属性名 = 图形元素名称 + 基础事件名，总计220种组合。
-![](https://cdn.nlark.com/yuque/0/2018/png/100996/1539842016314-48282592-bbb6-4c54-a09e-a471ec91a11b.png)
-```js
-chart.on('point:click', ev => {});
-chart.on('axis-label:click', ev => {});
-```
-下图展示了图表各个组件的名称
+下图展示了图表各个组件的名称:
 
-![](https://gw.alipayobjects.com/zos/rmsportal/IXRZJVKWYEdafYAzbsXO.png)
+![](https://camo.githubusercontent.com/177d5d823530ecae0ee10a6c9cfef8eb52d3967a/68747470733a2f2f67772e616c697061796f626a656374732e636f6d2f7a6f732f726d73706f7274616c2f4958525a4a564b57594564616659417a6273584f2e706e67)
