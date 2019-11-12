@@ -206,34 +206,34 @@ itemTpl= '<li data-index={index}>'
 
 #### `boardStyle`
 * 类型: Object
-* 描述: 用于控制tooltip背景板的显示样式。
+* 描述: 用于控制tooltip背景板的显示样式,样式详情见[绘图属性](./graphic)
 
 #### `titleStyle`
 * 类型: Object
-* 描述: 用于控制tooltip标题的显示样式。
+* 描述: 用于控制tooltip标题的显示样式,样式详情见[绘图属性](./graphic)
 
 #### `nameStyle`
 * 类型: Object
-* 描述: 用于控制tooltip每一项 name 的显示样式。
+* 描述: 用于控制tooltip每一项 name 的显示样式,样式详情见[绘图属性](./graphic)
 
 #### `valueStyle`
 * 类型: Object
-* 描述: 用于控制tooltip每一项 value 的显示样式。
+* 描述: 用于控制tooltip每一项 value 的显示样式,样式详情见[绘图属性](./graphic)
 
 #### `itemGap`
 * 类型: Number
 * 描述: 用于控制tooltip每一项之间的间距
 
 ### miniTooltip 属性
-mini tooltip是一种极简的tooltip形式，只显示单个数据的数值。通过设置配置项type:mini切换为miniTooltip，以下配置项只有在type为'mini'的时候才能生效。样式详情见 [绘图属性](connector)。
+mini tooltip是一种极简的tooltip形式，只显示单个数据的数值。通过设置配置项type:mini切换为miniTooltip，以下配置项只有在type为'mini'的时候才能生效。
 
 #### `boardStyle`
 * 类型: Object
-* 描述: 用于控制tooltip背景板的显示样式。
+* 描述: 用于控制tooltip背景板的显示样式,样式详情见[绘图属性](./graphic)
 
 #### `valueStyle`
 * 类型: Object
-* 描述: 用于控制tooltip每一项 value 的显示样式。
+* 描述: 用于控制tooltip每一项 value 的显示样式,样式详情见[绘图属性](./graphic)
 
 #### `triangleWidth`
 * 类型: Number
