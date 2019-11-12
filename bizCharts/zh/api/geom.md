@@ -10,6 +10,39 @@
 BizCharts 生成的图表的类型，是由几何标记和坐标系共同决定的。可以通过下图直观得理解什么是几何标记：
 <img src="https://gw.alipayobjects.com/zos/rmsportal/ffXoDNzwnXNHoaxtjbfY.png" style="width: 75%">
 
+## 图形属性
+首先需要明确一点：**图形属性是属于每一个几何标记 geom（Geometry) 的**，所以我们先要声明几何标记，然后再在该几何标记对象上进行图形属性的配置，代码如下：
+
+```javascript
+<Gemo 
+  type=[geomType] 
+  [attrType]="" 
+  [attrType]={["fields1*fields2",(fields1,fields2)=>{
+    console.log("callback",fields1,fields2)
+  }]} 
+/>
+```
+其中：
+- geomType，几何标记类型，在本章后面会进行详细的介绍。
+- attrType，图形属性类型，对应视觉通道；
+- fields，参与单个视觉通道映射的字段，可以是单个字段也可以是多个字段，多个字段使用 `*`分割
+- callback，回调函数，用于定义如何解析视觉通道，如不提供则只用 G2 默认提供的视觉通道解析方式。
+
+
+除了 `attr={[fields,callback]}` 的函数原型外，Bizcharts 为了用户使用的便利性，结合各个视觉通道的特点，还提供了更为便捷的使用方式，在本章后面会进行详细的介绍。
+
+语法示例：
+```javascript
+<Gemo
+  type="point" // geomType
+  position="class*Score" // attrType
+  color={["class*Score", (attr1,attr2)=>{
+    console.log(attr1,attr2)
+  }]} // attrType
+  opacity={0.65} // attrType
+  shape="circle" // attrType
+/>
+```
 
 ## 几何标记和图表类型
 虽然 BizCharts 没有特定的图表类型概念，**但是仍基本支持所有传统图表类型的绘制**。
@@ -38,7 +71,7 @@ heatmap| 热力图 | --
 > 更多[图形属性](graphic)
 
 
-#### `type`
+### `type`
 * 类型：String
 * 描述：几何标记类型，目前 BizCharts 支持的几何标记类型如下：
 
@@ -69,7 +102,7 @@ type | 描述|数据类型
 `schemaDodge` | 分组箱型图|dodge is not support linear attribute, please use category attribute!|
 
 
-#### `adjust`
+### `adjust`
 * 类型：Object
 * 描述：声明几何标记对象的数据调整方式，可用于绘制层叠图、扰动图、分组图等。支持单一的数据调整方式也支持各种数据调整方式的组合。
 支持的调整类型包括： 'stack', 'dodge', 'jitter', 'symmetric'。
@@ -93,7 +126,7 @@ type | 描述|数据类型
 
 <span id="position"></span>
 
-#### `position`
+### `position`
 * 类型：String
 * 描述：位置属性的映射；用于确定由数据中的哪几个字段来确定数据在平面坐标系的位置。通俗地解释，即确定 x 轴和 y 轴的数据字段。它是唯一一个可以用于编码分类又可用于编码定序或者定量的数据属性。
 
@@ -113,7 +146,7 @@ type | 描述|数据类型
 
 <span id="color"></span>
 
-#### `color`
+### `color`
 * 类型：	String | Array
 * 描述：将数据值映射到图形的颜色上的方法。
 
@@ -162,7 +195,7 @@ color 支持的映射值如下：
 
 <span id="shape"></span>
 
-#### `shape`
+### `shape`
 * 类型：	String | Array
 * 描述：将数据值映射到图形的形状上的方法。
 
@@ -205,7 +238,7 @@ shape 支持的映射值如下：
 
 <span id="size"></span>
 
-#### `size`
+### `size`
 * 类型：	String | Array| Number
 * 描述：对于不同的几何标记含义不完全一致：
 
@@ -245,7 +278,7 @@ size 支持映射值如下：
 
 <span id="opacity"></span>
 
-#### `opacity`
+### `opacity`
 * 类型：	String | Array| Number
 * 描述：将数据值映射到图形的透明度上的方法。
 
@@ -260,7 +293,7 @@ size 支持映射值如下：
 }]}/>
 ```
 
-#### `style`
+### `style`
 * 类型：Object | Array
 * 描述：配置几何图形的样式。
 当 style 的值是 Object 时，该 Object 中只能设置固定样式。
@@ -285,7 +318,7 @@ size 支持映射值如下：
 ```
 <span id="tooltip"></span>
 
-#### `tooltip`
+### `tooltip`
 * 类型：Boolean | String | Array
 * 描述：将数据值映射到 Tooltip 上。
 - Boolean 该几何标记是否需要显示 tooltip，默认值 false；
@@ -306,7 +339,7 @@ size 支持映射值如下：
 
 ![](https://img.alicdn.com/tfs/TB13OOzk7P2gK0jSZPxXXacQpXa-2156-1162.png)
 
-#### `select`
+### `select`
 * 类型：	Boolean | Array
 * 描述：开启、关闭以及设置 shape 对于鼠标 click 事件的响应效果。BizCharts 默认仅为饼图开启了选中效果。
 
@@ -324,7 +357,7 @@ size 支持映射值如下：
 />
 ```
 
-#### `active`
+### `active`
 * 类型：Boolean | Array
 * 描述：开启以及关闭 shape 对于鼠标 hover 时的响应效果，G2 默认为各个 geom 内置了 active 效果 。
 
@@ -341,11 +374,11 @@ size 支持映射值如下：
 />
 ```
 
-#### `animate`
+### `animate`
 * 类型：Object
 * 描述：定义几何标记上的动画效果，具体配置参数及使用参见[animate文档](../docs/animate)
 
-#### `hide`
+### `hide`
 * 类型： Boolean
 * 描述： 该 geom 是否默认隐藏
 * 默认值： false
