@@ -397,8 +397,7 @@ marker = {(x, y, r) => {
 ### 常见问题
 1. 隐藏图例
 ```js
-chart.legend(false); // 隐藏全部图例
-chart.legend('x', false); // 只隐藏 x 维度对应的图例
+{ visibleLegen ? <Legend name="[字段名]"} /> : undefiend }
 ```
 2. 图例显示位置不够
 
