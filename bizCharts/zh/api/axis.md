@@ -151,9 +151,8 @@ const scale = {
 ```js
 const label = {
   offset: {number}, // 数值，设置坐标轴文本 label 距离坐标轴线的距离
-  rotate: 30, // 旋转角度
+  rotate: 30, // 文本旋转角度
   // 设置文本的显示样式，还可以是个回调函数，回调函数的参数为该坐标轴对应字段的数值
-  rotate: 30, //文本旋转角度
   textStyle: {
     textAlign: 'center', // 文本对齐方向，可取值为： start center end
     fill: '#404040', // 文本的颜色
