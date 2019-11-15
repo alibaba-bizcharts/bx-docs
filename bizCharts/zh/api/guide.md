@@ -131,7 +131,8 @@ const { Line } = Guide;
 </Guide>
 ```
 ![image](https://cdn.nlark.com/yuque/0/2018/png/100996/1539840373775-8ae52cb7-b1b8-4ef3-9053-006721abf61c.png)
-[详见demo](https://bizcharts.net/products/bizCharts/demo/detail?id=line-series)
+<br/>
+[详见 Guide Line demo](https://bizcharts.net/products/bizCharts/demo/detail?id=line-series)
 
 
 #### `top`
