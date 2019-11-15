@@ -10,17 +10,17 @@
 
 ### 子组件
 
-| 组件                                 | 说明                                                   |
-| :----------------------------------- | :----------------------------------------------------- |
-| [`<Guide><Guide.Line /></Guide>`](#line)     | 辅助线（可带文本），例如表示平均值或者预期分布的直线。 |
-| [`<Guide><Guide.Image /></Guide>`](#image)   | 辅助图片，在图表上添加辅助图片。                       |
-| [`<Guide><Guide.Text /></Guide>`](#text)     | 辅助文本，指定位置添加文本说明。                       |
-| [`<Guide><Guide.Region /></Guide>`](#region) | 辅助框，框选一段图区，设置背景、边框等。               |
-| [`<Guide><Guide.Html /></Guide>`](#html)     | 辅助 html，指定位置添加自定义 html，显示自定义信息。   |
-| [`<Guide><Guide.Arc /></Guide>`](#arc)       | 辅助弧线。                                             |
-| [`<Guide><Guide.RegionFilter /></Guide>`](#RegionFilter) | 辅助框，框选一段图区，设置背景、边框等。|
-| [`<Guide><Guide.DataMarker /></Guide>`](#DataMarker) | 辅助 html，指定位置添加自定义 html，显示自定义信息。|
-| [`<Guide><Guide.DataRegion /></Guide>`](#DataRegion) | 辅助弧线。|
+| 组件                                                     | 说明                                                   |
+| :------------------------------------------------------- | :----------------------------------------------------- |
+| [`<Guide><Guide.Line /></Guide>`](#line)                 | 辅助线（可带文本），例如表示平均值或者预期分布的直线。 |
+| [`<Guide><Guide.Image /></Guide>`](#image)               | 辅助图片，在图表上添加辅助图片。                       |
+| [`<Guide><Guide.Text /></Guide>`](#text)                 | 辅助文本，指定位置添加文本说明。                       |
+| [`<Guide><Guide.Region /></Guide>`](#region)             | 辅助框，框选一段图区，设置背景、边框等。               |
+| [`<Guide><Guide.Html /></Guide>`](#html)                 | 辅助 html，指定位置添加自定义 html，显示自定义信息。   |
+| [`<Guide><Guide.Arc /></Guide>`](#arc)                   | 辅助弧线。                                             |
+| [`<Guide><Guide.RegionFilter /></Guide>`](#RegionFilter) | 辅助框，框选一段图区，设置背景、边框等。               |
+| [`<Guide><Guide.DataMarker /></Guide>`](#DataMarker)     | 辅助 html，指定位置添加自定义 html，显示自定义信息。   |
+| [`<Guide><Guide.DataRegion /></Guide>`](#DataRegion)     | 辅助弧线。                                             |
 
 ### 使用注意
 - Line是Guide的API, [详见demo](https://bizcharts.net/products/bizCharts/demo/detail?id=line-series)
@@ -73,7 +73,7 @@ const { Line } = Guide;
 ```js
 // 应用于数据动态更新，辅助元素的位置根据数据变化
 <Guide>
-  <Text
+  <Guide.Text
     content='最大值'
     position={(xScale, yScale)=>{
       return []; //位置信息
@@ -208,7 +208,7 @@ const Region = Guide.Region;
   />
 </Guide>
 ```
-![image](https://cdn.nlark.com/yuque/0/2018/png/100996/1539840429277-53a8e36c-8a7e-41cf-93fd-43ca7c2ab444.png)
+![image](https://img.alicdn.com/tfs/TB1nZiQm.Y1gK0jSZFCXXcwqXXa-1568-892.png_800x800)
 
 #### `top`
 * 类型： Boolean
@@ -267,7 +267,7 @@ const Region = Guide.Region;
 ```
 ![Guide Image Demo Code](https://img.alicdn.com/tfs/TB18yeKm1H2gK0jSZJnXXaT1FXa-2654-976.png)
 
-![image](https://cdn.nlark.com/yuque/0/2018/png/100996/1539840397466-d3d5636d-aad3-4b51-bb25-83291c3523ec.png)
+![image](https://img.alicdn.com/tfs/TB1R_aQmYj1gK0jSZFOXXc7GpXa-1678-802.png_800x800)
 
 
 
@@ -328,7 +328,7 @@ const Region = Guide.Region;
     />
 </Guide>
 ```
-![image](https://cdn.nlark.com/yuque/0/2018/png/100996/1539840452881-05e46776-a498-4037-9741-9c2df36a665e.png)
+![image](https://img.alicdn.com/tfs/TB11GKMm.Y1gK0jSZFMXXaWcVXa-1666-866.png_800x800)
 
 #### `top`
 * 类型：Boolean
@@ -369,7 +369,7 @@ const Region = Guide.Region;
   />
 </Guide>
 ```
-![image](https://cdn.nlark.com/yuque/0/2018/png/100996/1539840479814-39752f61-071c-4145-8705-efc0264e2c2e.png)
+![image](https://img.alicdn.com/tfs/TB1TAOMm7P2gK0jSZPxXXacQpXa-1706-818.png_800x800)
 
 #### `position`
 * 类型：Object | Function |Array
@@ -476,7 +476,7 @@ const Region = Guide.Region;
   apply={array} //可选，设定regionFilter只对特定geom类型起作用  />
 </Guide>
 ```
-![image](https://cdn.nlark.com/yuque/0/2018/png/100996/1539840527395-f4893edb-7867-43de-8b46-1ac0a9ff06a8.png)
+![image](https://img.alicdn.com/tfs/TB1JByPm4v1gK0jSZFFXXb0sXXa-1706-818.png_800x800)
 
 #### `top`
 * 类型: Boolean
@@ -493,7 +493,7 @@ const Region = Guide.Region;
   - function: 回调函数，可以动态的确定辅助元素的位置，应用于数据动态更新，辅助元素的位置根据数据变化的场景
   ```js
     <Guide>
-      <RegionFilter start={(xScale, yScale) => {
+      <Guide.RegionFilter start={(xScale, yScale) => {
         return []; //位置信息
       }} />
     </Guide>
@@ -535,7 +535,7 @@ const Region = Guide.Region;
   />
 </Guide>
 ```
-![image](https://cdn.nlark.com/yuque/0/2018/png/100996/1539840618454-c50783aa-0717-4c18-b2c2-5a7c4da21dd0.png)
+![image](https://img.alicdn.com/tfs/TB1VfOQmYH1gK0jSZFwXXc7aXXa-1696-1402.png_800x800)
 
 #### `top`
 * 类型: Boolean
@@ -607,7 +607,7 @@ const Region = Guide.Region;
   />
 </Guide>
 ```
-![image](https://cdn.nlark.com/yuque/0/2018/png/100996/1539840654424-0c57efec-4c90-4994-a29b-5cf2404cbcd9.png)
+![image](https://img.alicdn.com/tfs/TB1L9eQm.Y1gK0jSZFCXXcwqXXa-1672-1396.png_800x800)
 
 #### `top`
 * 类型: Boolean
@@ -624,7 +624,7 @@ const Region = Guide.Region;
   - function: 回调函数，可以动态的确定辅助元素的位置，应用于数据动态更新，辅助元素的位置根据数据变化的场景
   ```js
     <Guide>
-      <Line start={(xScale, yScale) => {
+      <Guide.Line start={(xScale, yScale) => {
         return []; //位置信息
       }} />
     </Guide>
@@ -681,4 +681,4 @@ chart.render();
 * 表示位置的数组可以换成回调函数，函数原型： function(xScale, yScale) {return [];}
   - xScale, yScale 映射到 x 轴上的字段生成的度量，详情查看 度量, api;
   - 分类度量常用的值是 values 包含了所有的分类，连续度量常用的是 min, max
-![image](https://cdn.nlark.com/yuque/0/2018/png/100996/1539840695501-71eaf8b1-ad9d-4bcc-9d84-46b2ca40671b.png)
+![image](https://img.alicdn.com/tfs/TB1bumNm.T1gK0jSZFhXXaAtVXa-1630-800.png_800x800)
