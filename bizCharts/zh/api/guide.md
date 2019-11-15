@@ -12,15 +12,15 @@
 
 | 组件                                 | 说明                                                   |
 | :----------------------------------- | :----------------------------------------------------- |
-| [`<Guide><Line /></Guide>`](#line)     | 辅助线（可带文本），例如表示平均值或者预期分布的直线。 |
-| [`<Guide><Image /></Guide>`](#image)   | 辅助图片，在图表上添加辅助图片。                       |
-| [`<Guide><Text /></Guide>`](#text)     | 辅助文本，指定位置添加文本说明。                       |
-| [`<Guide><Region /></Guide>`](#region) | 辅助框，框选一段图区，设置背景、边框等。               |
-| [`<Guide><Html /></Guide>`](#html)     | 辅助 html，指定位置添加自定义 html，显示自定义信息。   |
-| [`<Guide><Arc /></Guide>`](#arc)       | 辅助弧线。                                             |
-| [`<Guide><RegionFilter /></Guide>`](#RegionFilter) | 辅助框，框选一段图区，设置背景、边框等。|
-| [`<Guide><DataMarker /></Guide>`](#DataMarker) | 辅助 html，指定位置添加自定义 html，显示自定义信息。|
-| [`<Guide><DataRegion /></Guide>`](#DataRegion) | 辅助弧线。|
+| [`<Guide><Guide.Line /></Guide>`](#line)     | 辅助线（可带文本），例如表示平均值或者预期分布的直线。 |
+| [`<Guide><Guide.Image /></Guide>`](#image)   | 辅助图片，在图表上添加辅助图片。                       |
+| [`<Guide><Guide.Text /></Guide>`](#text)     | 辅助文本，指定位置添加文本说明。                       |
+| [`<Guide><Guide.Region /></Guide>`](#region) | 辅助框，框选一段图区，设置背景、边框等。               |
+| [`<Guide><Guide.Html /></Guide>`](#html)     | 辅助 html，指定位置添加自定义 html，显示自定义信息。   |
+| [`<Guide><Guide.Arc /></Guide>`](#arc)       | 辅助弧线。                                             |
+| [`<Guide><Guide.RegionFilter /></Guide>`](#RegionFilter) | 辅助框，框选一段图区，设置背景、边框等。|
+| [`<Guide><Guide.DataMarker /></Guide>`](#DataMarker) | 辅助 html，指定位置添加自定义 html，显示自定义信息。|
+| [`<Guide><Guide.DataRegion /></Guide>`](#DataRegion) | 辅助弧线。|
 
 ### 使用注意
 - Line是Guide的API, [详见demo](https://bizcharts.net/products/bizCharts/demo/detail?id=line-series)
@@ -86,6 +86,7 @@ const { Line } = Guide;
 ![e051f3e7-35ab-4895-8aa6-89fba3045da9.png](https://img.alicdn.com/tfs/TB16XZ8bOqAXuNjy1XdXXaYcVXa-1186-510.png)
 
 ```js
+const Region = Guide.Region;
 <Chart width={600} height={400} data={data}>
   <Guide>
     <Region start={[-1, 0]} end={[1, ranges[0]]} style={{fill: '#e96e33',
@@ -109,7 +110,7 @@ const { Line } = Guide;
 
 ```js
 <Guide>
-  <Line
+  <Guide.Line
     top={boolean} // 指定 guide 是否绘制在 canvas 最上层，默认为 false, 即绘制在最下层
     start= {{object} | {function} | {array}} // 辅助线起始位置，值为原始数据值，支持 callback
     end={{object} | {function} | {array}} // 辅助线结束位置，值为原始数据值，支持 callback
@@ -151,7 +152,7 @@ const { Line } = Guide;
 
   ```js
     <Guide>
-      <Line start={(xScale, yScale) => {
+      <Guide.Line start={(xScale, yScale) => {
         return []; //位置信息
       }} />
     </Guide>
@@ -171,7 +172,7 @@ const { Line } = Guide;
 
 ```js
 <Guide>
-  <Line
+  <Guide.Line
     text={{
       position: 'start' | 'center' | 'end' | '39%' | 0.5, // 文本的显示位置，值除了指定的常量外，还可以是百分比或者小数
       autoRotate: {boolean}, // 指定文本是否沿着线的方向排布，默认为 true，即沿着线排布
@@ -192,7 +193,7 @@ const { Line } = Guide;
 
 ```js
 <Guide>
-  <Text
+  <Guide.Text
     top= {boolean} // 指定 guide 是否绘制在 canvas 最上层，默认为 false, 即绘制在最下层
     position= {object} | {function} | {array} // 文本的起始位置，值为原始数据值，支持 callback
     content= {string} // 显示的文本内容
@@ -226,7 +227,7 @@ const { Line } = Guide;
 
     ```js
     <Guide>
-      <Text position={(xScale, yScale) => [x, y]} > // 返回位置信息
+      <Guide.Text position={(xScale, yScale) => [x, y]} > // 返回位置信息
     </Guide>
     ```
 
@@ -252,7 +253,7 @@ const { Line } = Guide;
 ```js
 <Guide>
   // 辅助图片 image，只是指定了 start，则该点表示图片左上角坐标
-  <Image
+  <Guide.Image
     top = {boolean} // 指定 giude 是否绘制在 canvas 最上层，默认为 false, 即绘制在最下层
     start= {object} | {function} | {array} // 图片起始位置， 值为原始数据值，支持 callback
     end= {array} | {function} | {array} // 图片结束位置， 值为原始数据值，支持 callback
@@ -264,7 +265,11 @@ const { Line } = Guide;
   />
 </Guide>
 ```
+![Guide Image Demo Code](https://img.alicdn.com/tfs/TB18yeKm1H2gK0jSZJnXXaT1FXa-2654-976.png)
+
 ![image](https://cdn.nlark.com/yuque/0/2018/png/100996/1539840397466-d3d5636d-aad3-4b51-bb25-83291c3523ec.png)
+
+
 
 #### `top`
 * 类型：  Boolean
@@ -310,7 +315,7 @@ const { Line } = Guide;
 
 ```js
 <Guide>
-  <Region
+  <Guide.Region
     top={boolean} // 指定 giude 是否绘制在 canvas 最上层，默认为 false, 即绘制在最下层
     start= {object} | {function} | {array} // 辅助框起始位置，值为原始数据值，支持 callback
     end= {object} | {function} | {array}// 辅助框结束位置，值为原始数据值，支持 callback
@@ -353,7 +358,7 @@ const { Line } = Guide;
 
 ```js
 <Guide>
-  <Html
+  <Guide.Html
     position={object} | {function} | {array} // html 的中心位置， 值为原始数据值，支持 callback
     alignX='left' | 'middle' | 'right'
     alignY='top' | 'middle' | 'bottom'
@@ -422,7 +427,7 @@ const { Line } = Guide;
 
 ```js
 <Guide>
-  <Arc
+  <Guide.Arc
     top={object} // 指定 giude 是否绘制在 canvas 最上层，默认为 false, 即绘制在最下层
     start={object} | {function} | {array} // 辅助框起始位置，值为原始数据值，支持 callback
     end={object} | {function} | {array}// 辅助框结束位置，值为原始数据值，支持 callback
@@ -463,7 +468,7 @@ const { Line } = Guide;
 
 ```js
 <Guide>
-  <RegionFilter
+  <Guide.RegionFilter
   top={boolean} // 指定 giude 是否绘制在 canvas 最上层，默认为 true, 即绘制在最上层
   start={object} | {function} | {array} // 辅助框起始位置，值为原始数据值，支持 callback
   end={object} | {function} | {array}// 辅助框结束位置，值为原始数据值，支持 callback
@@ -511,7 +516,7 @@ const { Line } = Guide;
 特殊数据标注点，适用于折线图和面积图。默认状态的特殊数据标注点由point、line、text三部分组成，同时开放接口对各部分是否显示及显示样式等进行设置
 ```js
 <Guide>
-  <DataMarker
+  <Guide.DataMarker
     top={true | false} // 指定 giude 是否绘制在 canvas 最上层，默认为true, 即绘制在最上层
     position={{object} | {function} | {array}} // 标注点起始位置，值为原始数据值，支持 callback,
     content={string} // 显示的文本内容
@@ -547,7 +552,7 @@ const { Line } = Guide;
   - function: 回调函数，可以动态的确定辅助元素的位置，应用于数据动态更新，辅助元素的位置根据数据变化的场景
   ```js
     <Guide>
-      <DataMarker start={(xScale, yScale) => {
+      <Guide.DataMarker start={(xScale, yScale) => {
         return []; //位置信息
       }} />
     </Guide>
@@ -582,7 +587,7 @@ const { Line } = Guide;
 特殊数据区间标注，适用于折线图和面积图。
 ```js
 <Guide>
-  <DataRegion
+  <Guide.DataRegion
     top={true | false} // 指定 giude 是否绘制在 canvas 最上层，默认为 true, 即绘制在最上层
     start={{object} | {function} | {array}} // 标注点起始位置，值为原始数据值，支持 callback ,
     end={{object} | {function} | {array}} // 标注点结束位置，值为原始数据值，支持 callback ,
