@@ -20,7 +20,7 @@ g2 中资源主要是分为 core 和 对应个 geom 资源，g2 用户需要声�
 | ``<Venn>`` | 相当于 ``<Geom type='venn'>`` |
 
 
-** 因此如果想要按需加载 bizcharts 资源，请使用命名后的 geom 组件，例如 ``<Line> <Interval>`` 等，请勿使用之前的 <Geom> 组件，否则会全量加载 geom 资源。 **
+**因此如果想要按需加载 bizcharts 资源，请使用命名后的 geom 组件，例如 ``<Line> <Interval>`` 等，请勿使用之前的 <Geom> 组件，否则会全量加载 geom 资源。**
 
 - 需要使用原先 bizcharts 上的工具函数，请加载 ``import Chart from 'bizcharts/lib/core'``
 具体有：
