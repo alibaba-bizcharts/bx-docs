@@ -47,9 +47,9 @@
         margin: '10px'
       }}
     />
-  <Gemo tooltip={["x*y*z", (x,y,z) => {
-    return { color: 'red', value: x };
-  }]}
+  <Geom tooltip={["x*y*z", (x,y,z) => {
+    return { color: 'red', value: y, name: x };
+  }]} />
 </Chart>
 ```
 
