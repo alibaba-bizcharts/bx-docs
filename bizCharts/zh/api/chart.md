@@ -14,7 +14,7 @@
 
 [在线 Demo](http://bizcharts.net/products/bizCharts/demo/detail?id=line-basic&selectedKey=折线图)
 
-```js
+```jsx
 <Chart height={400} data={dv} scale={scale} forceFit>
   <span className='main-title' style={styles.mainTitle}>
     阿里销售业绩
@@ -64,7 +64,7 @@ G2.Global.renderer = 'svg' // or 'canvas';
 > 使用方式2:
 指定这一个图表使用 svg 渲染。
 
-```js
+```jsx
 <Chart renderer='svg' width={600} height={400} data={data} scale={scale} forceFit/>
 ```
 
@@ -99,7 +99,7 @@ svg、canvas 渲染更多说明[请点击](//www.yuque.com/antv/g2-docs/tutorial
 * 类型：Object
 * 描述：配置数据比例尺，该配置会影响数据在图表中的展示方式。
 
-```js
+```jsx
 const scale = {
   'sales': {
     type: 'identity' | 'linear' | 'cat' | 'time' | 'timeCat' | 'log' | 'pow', // 指定数据类型
@@ -127,7 +127,7 @@ const scale = {
 * 类型：Object | Number | Array
 * 描述：图表内边距，有如下配置方式:
 
-```js
+```jsx
 //有时候坐标轴、图例等绘图区域外的组件显示不全时，可以通过调整图表各个方向的 padding 来调整最终效果
 <Chart padding="auto" />
 <Chart padding={[ 20, 30, 20, 30]} />
@@ -198,7 +198,7 @@ const scale = {
 * 类型：Array
 * 描述：过滤数据，如果存在对应的图例，则过滤掉的字段置灰。
 Array:[[fieldString1, callback1], [fieldString2, callback2]]
-```js
+```jsx
 <Chart
   filter={[
       ['x', val => val > 20] // 图表将会只渲染 x 字段数值大于 20 的数据
@@ -212,14 +212,14 @@ Array:[[fieldString1, callback1], [fieldString2, callback2]]
 #### `className`
 * 类型：String
 * 描述：设置图表最外层div的类名。
-```js
+```jsx
 <Chart className="chart1" />
 ```
 
 #### `style`
 * 类型：Object
 * 描述：设置图表最外层div的样式。
-```js
+```jsx
 const style={fontSize: '12'}
 <Chart style={style} />
 ```
@@ -234,7 +234,7 @@ const style={fontSize: '12'}
 ## 图表事件
 `<chart/>`组件提供了各种事件，方便用户扩展交互。基本的事件用法如下：
 
-```js
+```jsx
 <chart
   onEvent={e => {
     //do something
@@ -250,7 +250,7 @@ const style={fontSize: '12'}
 * 类型：Function
 * 描述：获取 chart 实例的回调。每当生成一个新 chart 时就会调用该函数，并以新生成的 chart 作为回调参数。
 
-```js
+```jsx
 <chart
   onGetG2Instance={g2Chart => {
 	g2Chart.animate(false);
@@ -271,7 +271,7 @@ const style={fontSize: '12'}
     + shape: 当前鼠标所在的 shape 对象；
     + views: Array，当前鼠标所在的视图。
 
-```js
+```jsx
 let chartIns;
 
 <Chart
@@ -298,7 +298,7 @@ let chartIns;
     + toElement：当前 dom 元素；
     + views: Array，当前鼠标所在的视图。
 
-```js
+```jsx
 <chart
   onPlotEnter={ev => {
 	var point = {
@@ -322,7 +322,7 @@ let chartIns;
     + toElement：当前 dom 元素；
     + views: Array，当前鼠标所在的视图。
 
-```js
+```jsx
 <chart
   onPlotEnter={ev => {
 	var point = {
@@ -377,7 +377,7 @@ let chartIns;
 可以通过该事件回调函数，改变 items 中的内容来动态调整 tooltip 的显示内容。
 示例代码:
 
-```js
+```jsx
 <Chart
   onTooltipChange={(ev)=>{
     var items = ev.items; // tooltip显示的项
@@ -402,7 +402,7 @@ let chartIns;
 />
 ```
 
-```js
+```jsx
   <Chart width={600} height={400} data={data} scale={scales} onTooltipChange={ev=>{
       console.log(ev);
       ev.items[0].title += 'xxx';
@@ -453,7 +453,7 @@ let chartIns;
 
 代码示例：
 
-```js
+```jsx
   <Chart width={600} height={400} data={data} scale={scales} onIntervalMouseenter={ev=>{
       console.log(ev);
     }}>
