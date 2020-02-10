@@ -6,7 +6,7 @@
 - issue 中请务必提供可复现的链接，方便排查问题。链接可以在 Codepen 中 fork [Bizcharts codepen template](https://codepen.io/leslie2014/pen/xjJGER) 后生成。
 - 使用过程中如果遇到问题无法自行解决，可扫码加入钉钉群群求帮助
 
-![](https://img.alicdn.com/tfs/TB1NpiNl.D1gK0jSZFGXXbd3FXa-1125-1485.png_500x500)
+![](https://img.alicdn.com/tfs/TB1EwSXvAL0gK0jSZFtXXXQCXXa-1088-1088.jpg)
 
 
 ## 坐标轴空间不够
