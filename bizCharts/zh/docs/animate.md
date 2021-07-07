@@ -5,25 +5,25 @@ BizCharts 保留和兼容了 G2 中所有的动画功能。
 
 总共分为四种类型：
 
-* appear: 初始化时的入场动画；
-* enter: 更新时的出现动画；
-* update: 更新时的变化动画；
-* leave: 更新时的动画；
+* `appear`：初始化时的入场动画；
+* `enter`：更新时的出现动画；
+* `update`：更新时的变化动画；
+* `leave`：更新时的动画；
 
 ## 动画配置参数
 
-* [animation:String]  动画名称,不同类型的动画场景所支持的动画不同，详情[内置动画](#animationType)
-* [easing:String | Function]  动画缓动效果
-* [delay:Number | Function]  动画延迟执行事件
-* [duration:Number | Function]   动画持续事件
+* [`animation`：String]  动画名称,不同类型的动画场景所支持的动画不同，详情[内置动画](#animationType)
+* [`easing`：String | Function ]  动画缓动效果
+* [`delay`：Number | Function ]  动画延迟执行事件
+* [`duration`：Number | Function ]   动画持续事件
 
 使用如下：
 ```js
 {
-animation: 'fadeIn', // 动画名称
-easing: 'easeInQuart', // 动画缓动效果
-delay: 100, // 动画延迟执行时间
-duration: 600 // 动画执行时间
+`animation`：'fadeIn', // 动画名称
+`easing`：'easeInQuart', // 动画缓动效果
+`delay`：100, // 动画延迟执行时间
+`duration`：600 // 动画执行时间
 }
 ```
 
@@ -34,27 +34,27 @@ duration: 600 // 动画执行时间
 
 ## 支持的动画名称
 ### enter
-- clipIn,
-- zoomIn,
-- pathIn,
-- scaleInY,
-- scaleInX,
-- fanIn,
+- clipIn
+- zoomIn
+- pathIn
+- scaleInY
+- scaleInX
+- fanIn
 - fadeIn
 
 ### leave
-- lineWidthOut,
-- zoomOut,
-- pathOut,
+- lineWidthOut
+- zoomOut
+- pathOut
 - fadeOut
 
 ### appear
-- clipIn,
-- zoomIn,
-- pathIn,
-- scaleInY,
-- scaleInX,
-- fanIn,
+- clipIn
+- zoomIn
+- pathIn
+- scaleInY
+- scaleInX
+- fanIn
 - fadeIn
 
 ### update
