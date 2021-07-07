@@ -41,110 +41,107 @@ const scale = {
 
 在上述数据中，`month` 代表月份，`temperature` 代表温度，`city` 代表城市，其中 `month` 和 `city` 都是分类类型数据，但是不同的是 `month` 作为月份是有序的分类类型，而 `city` 是无序的分类类型，而 `temperature` 是连续的数值类型。
 
-## 属性
+## 通用属性
 
-### 通用属性
-
-#### `type`
+### `type`
 * 类型：string 
 * 描述： 度量的类型，可选值有：`linear`、`cat`、`log`、`pow`、`time` 和 `timeCat`.
 
-不同类型的度量属性也不一样，想见各类型属性说明。
+不同类型的度量属性也不一样，详见各类型属性说明。
 
-#### `alias`
+### `alias`
 * 类型: string 
 * 描述: 为数据属性定义别名，用于图例、坐标轴、tooltip 的个性化显示.
 
-#### `range`
+### `range`
 * 类型: array
-* 描述: 数值范围区间，即度量转换的范围，默认为 [0, 1].
+* 描述: 数值范围区间，即度量转换的范围，默认为 [0, 1]，格式为 [min, max]，min 和 max 均为 0 至 1 范围的数据。
 
-#### `formatter`
+### `sync`
+* 类型：Bloolean
+* 描述：当 chart 存在不同数据源的 view 时，用于统一相同数据属性的值域范围。
+
+### `formatter`
 * 类型: function
 * 描述: 回调函数，用于格式化坐标轴刻度点的文本显示，会影响数据在坐标轴、图例、tooltip 上的显示.
 
-    - `value`       __*__
+    - 参数：`value`，对应点的原始数据
 
-        对应点的原始数据
+    - 返回值：`string`，对应点的坐标轴、tooltip 以及图例上展示的内容。
 
-    - 返回值
-
-        `string`，对应点的坐标轴、tooltip 以及图例上展示的内容。
-
+## Scale类型
 
 ### linear
 连续的数据值，如这一组数据：[1, 2, 3, 4, 5]，除了通用的属性外，还包含以下自有属性:
 
-#### `nice`
-* 类型: boolean
-* 描述: 用于优化数值范围，使绘制的坐标轴刻度线均匀分布。例如原始数据的范围为 `[3, 97]`，如果 `nice` 为 `true`，那么就会将数值范围调整为 `[0, 100]`。
-默认值：`true`
+* `alias`
+    - 类型: string
+    - 描述: 别名
 
-#### `min`
-* 类型：number
-* 描述：定义数值范围的最小值。
+* `nice`
+    - 类型: boolean
+    - 描述: 用于优化数值范围，使绘制的坐标轴刻度线均匀分布。例如原始数据的范围为 `[3, 97]`，如果 `nice` 为 `true`，那么就会将数值范围调整为 `[0, 100]`。
+    - 默认值：`true`
 
-#### `max`
-* 类型：number
-* 描述：定义数值范围的最大值。
+* `min`
+    - 类型：number
+    - 描述：定义数值范围的最小值。
 
-#### `range`
-* 类型：Array
-* 描述：数值范围区间，即度量转换的范围，默认为 `[0, 1]`
+* `max`
+    - 类型：number
+    - 描述：定义数值范围的最大值。
 
-#### `ticks`
-* 类型：Array
-* 描述：存储坐标轴上的刻度点文本信息
+* `range`
+    - 类型：Array
+    - 描述：数值范围区间，即度量转换的范围，默认为 `[0, 1]`
 
-#### `tickCount`
-* 类型：number
-* 描述：坐标轴上刻度点的个数，不同的度量类型对应不同的默认值
-* [tickCount Demo](https://bizcharts.net/products/bizCharts/demo/detail?id=g2-line-of-dashed&selectedKey=%E6%8A%98%E7%BA%BF%E5%9B%BE)
+* `ticks`
+    - 类型：Array
+    - 描述：存储坐标轴上的刻度点文本信息，当用户设置了 ticks 就会按照 ticks 的个数和文本来显示。
 
-#### `tickInterval`
-* 类型：number
-* 描述：用于指定坐标轴各个标度点的间距，是**原始数据**之间的间距差值，**`tickCount` 和 `tickInterval` 不可以同时声明。**
+* `tickCount`
+    - 类型：number
+    - 描述：坐标轴上刻度点的个数，不同的度量类型对应不同的默认值
+    - [tickCount Demo](https://bizcharts.net/products/bizCharts/demo/detail?id=g2-line-of-dashed&selectedKey=%E6%8A%98%E7%BA%BF%E5%9B%BE)
+    - 默认值：5
 
-#### `minTickInterval`
-* 类型：number
-* 描述：用于指定坐标轴各个标度点的最小间距。例如当数据值比较小，但是刻度间距必须整数时（实际可能会出现浮点数），可以将 minTickInterval 配置为1。**
+* `tickInterval`
+    - 类型：number
+    - 描述：用于指定坐标轴各个标度点的间距，是**原始数据**之间的间距差值，**`tickCount` 和 `tickInterval` 不可以同时声明。**
 
-#### `minLimit`
-* 类型：number
-* 描述：对数据的最小值的限制，无论数据中是否存在比这个值小的数据，生成的坐标点不会小于这个值.
+* `minTickInterval`
+    - 类型：number
+    - 描述：用于指定坐标轴各个标度点的最小间距。例如当数据值比较小，但是刻度间距必须整数时（实际可能会出现浮点数），可以将 minTickInterval 配置为1。
 
-#### `maxLimit`
-* 类型：number
-* 描述：对数据的最大值的限制，无论数据中是否存在比这个值大的数据，生成的坐标点不会大于这个值.
+* `minLimit`
+    - 类型：number
+    - 描述：对数据的最小值的限制，无论数据中是否存在比这个值小的数据，生成的坐标点不会小于这个值.
 
-#### `formatter`
-* 类型：Function(value)
-* 描述：回调函数，用于格式化坐标轴刻度点的文本显示，会影响数据在坐标轴、图例、tooltip 上的显示。
+* `maxLimit`
+    - 类型：number
+    - 描述：对数据的最大值的限制，无论数据中是否存在比这个值大的数据，生成的坐标点不会大于这个值.
 
-    - `value`       __*__
+* `formatter`
+    - 类型：Function(value)
+    - 描述：回调函数，用于格式化坐标轴刻度点的文本显示，会影响数据在坐标轴、图例、tooltip 上的显示。
 
-        对应点的原始数据
+    - 参数：`value`：对应点的原始数据
+    - 返回值：`string`，对应点的坐标轴、tooltip 以及图例上展示的内容。
 
-    - 返回值
-
-        `string`，对应点的坐标轴、tooltip 以及图例上展示的内容。
-
-`说明：`
-- min,max,minLimit 和 maxLimit 都会影响坐标轴上坐标点的生成
-- min 和 minLimit 的差别主要体现在 如果数据中的数据的范围是 10-20 对于 min: 0 来说，会生成从 0 - - 20 范围的坐标点，但是对于 minLimit 来说只要保证生成的坐标点不小于 0 即可，生成的坐标点的范围可能依然在 10 - 20 之间。
-- max 和 maxLimit 的差别同 min 和 minLimit 类似， max 体现在坐标轴上肯定会出现 max 或者比 max 大的值，但是绝对不会出现比 maxLimit 大的值。
+* `说明：`
+    - min,max,minLimit 和 maxLimit 都会影响坐标轴上坐标点的生成
+    - min 和 minLimit 的差别主要体现在 如果数据中的数据的范围是 10-20 对于 min: 0 来说，会生成从 0 - - 20 范围的坐标点，但是对于 minLimit 来说只要保证生成的坐标点不小于 0 即可，生成的坐标点的范围可能依然在 10 - 20 之间。
+    - max 和 maxLimit 的差别同 min 和 minLimit 类似， max 体现在坐标轴上肯定会出现 max 或者比 max 大的值，但是绝对不会出现比 maxLimit 大的值。
 
 ### log
 连续非线性的 log 类型度量，该度量会将 [1, 10, 100, 1000] 先转换成 [0, 1, 2, 3] 然后再进行归一化操作。log 类型的数据可以将非常大范围的数据映射到一个均匀的范围内。
 
 log 度量是 linear 的子类，支持所有通用的属性和 linear 度量的属性，特有的属性如下：
 
-#### `base`
-* 类型：number
-* 描述：
+* `base`
+    - 类型：number
+    - 描述：Log 的基数
     > `type` 是 `log` 时适用
-
-    指定 log 函数的底数。
 
     默认值：`2`
 
@@ -177,20 +174,17 @@ const scale = {
 
 pow 类型的度量也是 linear 类型的一个子类，除了支持所有通用的属性和 linear 度量的属性外也有自己的属性：
 
-#### `exponent`
-* 类型: Number
-* 描述: 指数
+* `exponent`
+    - 类型: Number
+    - 描述: 指数
 
 ### time
 连续的时间类型，是一种特殊的连续性数据。time 类型的度量也是 linear 的子类，除了支持所有通用的属性和 linear 度量的属性外，还有自己特殊的属性：
 
-#### `mask`
-* 类型：string
-* 描述：时间显示格式
-* 默认值：`'yyyy-mm-dd'`
-
-
-    数据的格式化格式。
+* `mask`
+    - 类型：string
+    - 描述：时间显示格式，数据的格式化格式。
+    - 默认值：`'yyyy-mm-dd'`
 
     > 说明：mask 的占位符标准同 [moment](https://momentjs.com/docs/#/displaying/format/)、[fecha](https://github.com/taylorhakes/fecha);
 
@@ -202,40 +196,57 @@ pow 类型的度量也是 linear 类型的一个子类，除了支持所有通�
 ### cat
 分类类型数据的度量。除了拥有通用的度量属性外，用户还可以设置 values 属性：
 
-#### `values`
-* 类型：Array
-* 描述：
+* `values`
+    - 类型：Array
+    - 描述：具体的分类的值，一般用于指定具体的顺序和枚举的对应关系。
     > `type` 是 `cat` 和 `timeCat` 时适用。
+    - 常用于 2 个场景：
+    1. 需要指定分类的顺序时，例如：`type` 字段有`'最大'`、`'最小'`和`'适中'`，我们想指定这些数值在坐标轴或者图例上的显示顺序时：
 
-    具体的分类的值，一般用于指定具体的顺序和枚举的对应关系，常用于 2 个场景：
+        ```js
+        const scale = {
+        'c': {
+            type: 'cat',
+            values: [ '最小','适中','最大' ]
+        }
+        };
+        <Chart scale={scale} />
+        ```
+    2. 数据字段中的数据是数值类型，但是需要转换成分类类型，这个时候需要注意原始数据必须是索引值。
+        ```js
+        const data = [
+            { month: 0, tem: 7, city: "tokyo" },
+            { month: 1, tem: 6.9, city: "tokyo" },
+            { month: 2, tem: 9.5, city: "tokyo" },
+            { month: 3, tem: 14.5, city: "tokyo" },
+            { month: 4, tem: 18.2, city: "tokyo" },
+            { month: 5, tem: 21.5, city: "tokyo" },
+            { month: 6, tem: 25.2, city: "tokyo" }
+        ];
+        const scale = {
+          'month':{
+              type: 'cat',
+              values: [ '一月','二月','三月','四月','五月','六月','七月' ] // 这时候 month 的原始值是索引值
+          }
+        };
+        ```
 
-    需要指定分类的顺序时，例如：`type` 字段有`'最大'`、`'最小'`和`'适中'`，我们想指定这些数值在坐标轴或者图例上的显示顺序时：
-
-    ```js
-    const scale = {
-      'c': {
-        type: 'cat',
-        values: [ '最小','适中','最大' ]
-      }
-    };
-    <Chart scale={scale} />
-    ```
 ### timeCat
-timeCat 度量对应时间数据，但是不是连续的时间类型，而是有序的分类数据。例如股票交易的日期，此时如果使用 time 类型，那么由于节假日没有数据，折线图、k 线图就会发生断裂，所以此时需要使用 timeCat 类型度量将日期转换为有序的分类数据，该度量默认会对数据做排序。
+timeCat 度量对应时间数据，但是不是连续的时间类型，而是有序的分类数据。
 
+例如股票交易的日期，此时如果使用 time 类型，那么由于节假日没有数据，折线图、k 线图就会发生断裂，所以此时需要使用 timeCat 类型度量将日期转换为有序的分类数据，该度量默认会对数据做排序，如下图所示：
+
+![](https://zos.alipayobjects.com/skylark/27036dff-5843-48a4-95f5-53b56f8b2d9a/attach/3378/0940215d294981b8/image.png)
 
 timeCat 是 cat 度量的子类，除了支持所有通用的属性和 cat 度量的属性外也有自己的属性:
 
-#### `mask`
-* 类型：string
-* 描述：时间显示格式.
-* 默认值：`'YYYY-MM-DD HH:mm:ss`
-
-
-    数据的格式化格式。
+* `mask`
+    - 类型：string
+    - 描述：时间显示格式,数据的格式化格式。
+    - 默认值：`'YYYY-MM-DD HH:mm:ss`
 
     > 说明：mask 的占位符标准同 [moment](https://momentjs.com/docs/#/displaying/format/)、[fecha](https://github.com/taylorhakes/fecha);
 
-    timeCat 和 time 类型度量的差别和应用场景
-    > timeCat 是分类类型的度量，所以适合于显示 柱状图 或者固定时间内没有数据的场景（股票图）
-    > time 是连续类型的度量，更适合显示折线图、面积图，表现数据的趋势
+timeCat 和 time 类型度量的差别和应用场景：
+ 1. timeCat 是分类类型的度量，所以适合于显示 柱状图 或者固定时间内没有数据的场景（股票图）。
+ 2. time 是连续类型的度量，更适合显示折线图、面积图，表现数据的趋势。
