@@ -155,6 +155,11 @@
 
 ```
 
+#### `autoWrap`
+* 类型：Boolean
+* 描述：图例项过多时是否自动换行（用于分类图例）
+* 默认值：true,自动换行
+
 
 #### `marker`
 * 类型：String | Function
@@ -388,3 +393,12 @@ marker = {(x, y, r) => {
 </Chart>
 ```
 ![image | left ](https://img.alicdn.com/tfs/TB1..5Ma8fH8KJjy1XbXXbLdXXa-1600-856.png)
+
+### 常见问题
+1. 隐藏图例
+```js
+{ visibleLegen ? <Legend name="[字段名]"} /> : undefiend }
+```
+2. 图例显示位置不够
+
+调整 padding 值。
