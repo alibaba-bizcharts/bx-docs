@@ -251,9 +251,11 @@ const style={fontSize: '12'}
 * 描述：获取 chart 实例的回调。每当生成一个新 chart 时就会调用该函数，并以新生成的 chart 作为回调参数。
 
 ```js
+let chartInt;
 <chart
   onGetG2Instance={g2Chart => {
-	g2Chart.animate(false);
+  g2Chart.animate(false);
+  chartInt = g2Chart; // 保存实例，用于在其他地方调用实例方法
 	console.log(g2Chart);
   }}
 />
@@ -460,3 +462,9 @@ let chartIns;
   </Chart>
 ```
 
+
+![](https://camo.githubusercontent.com/f5f35aa7e67869c5b5511af81503e1c7f6c44043/68747470733a2f2f63646e2e6e6c61726b2e636f6d2f79757175652f302f323031382f706e672f3130303939362f313533393834323031363331342d34383238323539322d626262362d346335342d613039652d6134373165633931613131622e706e67)
+
+下图展示了图表各个组件的名称:
+
+![](https://camo.githubusercontent.com/177d5d823530ecae0ee10a6c9cfef8eb52d3967a/68747470733a2f2f67772e616c697061796f626a656374732e636f6d2f7a6f732f726d73706f7274616c2f4958525a4a564b57594564616659417a6273584f2e706e67)
